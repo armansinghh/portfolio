@@ -6,7 +6,7 @@ function App() {
 
         <h1 className="m-0 font-extrabold text-gray-900 leading-tight" style={{fontSize: 'clamp(2.6rem, 9.5vw, 7rem)'}}>Arman</h1>
 
-        <p className="mt-4 text-gray-600 text-base sm:text-lg">I build <strong className="font-semibold text-gray-900">AI Systems</strong>, <strong className="font-semibold text-gray-900">Simulations</strong> &amp; <strong className="font-semibold text-gray-900">Applications</strong></p>
+        <p className="mt-4 text-gray-600 text-base sm:text-lg">I build <strong className="font-semibold text-gray-900">Software Projects</strong> exploring <strong className="font-semibold text-gray-900">AI</strong>, <strong className="font-semibold text-gray-900">systems</strong> and the <strong className="font-semibold text-gray-900">web</strong>.</p>
 
         <div className="w-14 h-px bg-black/5 rounded mx-auto my-8" aria-hidden />
 
