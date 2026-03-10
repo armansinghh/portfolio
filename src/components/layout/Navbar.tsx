@@ -4,9 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Coffee } from 'lucide-react';
-
-// Theme switch temporarily disabled
-// import { SwitchTheme } from './themeSwitch';
+import { SwitchTheme } from './themeSwitch';
 
 const mainNavItems = [
   { name: 'About', href: '/about' },
@@ -65,8 +63,7 @@ export default function Navbar() {
           );
         })}
 
-        {/* Theme switch temporarily disabled */}
-        {/* <SwitchTheme /> */}
+         <SwitchTheme />
       </div>
 
       {/* Mobile menu button */}

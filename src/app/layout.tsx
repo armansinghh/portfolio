@@ -2,11 +2,7 @@ import "@/styles/globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
-export const metadata = {
-  title: "Arman Singh",
-  description: "Developer Portfolio",
-};
+import { ThemeProvider } from "@/components/providers/themeProvider";
 
 export default function RootLayout({
   children,
@@ -14,20 +10,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+              <head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                try {
+                  const theme = localStorage.getItem('theme') || 'system';
+                  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  const appliedTheme = theme === 'system' ? systemTheme : theme;
+                  document.documentElement.classList.add(appliedTheme);
+                } catch (e) {}
+              `,
+            }}
+          />
+        </head>
       <body>
+       
+        <ThemeProvider>
 
-        <div className="mx-auto max-w-2xl px-5 sm:px-6 lg:px-8 flex flex-col pt-12 min-h-screen">
+          <div className="mx-auto max-w-2xl px-5 sm:px-6 lg:px-8 flex flex-col pt-12 min-h-screen">
 
-          <Navbar />
+            <Navbar />
 
-          <main className="grow">
-            {children}
-          </main>
+            <main className="grow">
+              {children}
+            </main>
 
-          <Footer />
+            <Footer />
 
-        </div>
+          </div>
+
+        </ThemeProvider>
 
       </body>
     </html>

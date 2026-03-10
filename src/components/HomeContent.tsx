@@ -123,7 +123,7 @@ export default function HomeContent() {
                 asChild
               >
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/armansinghh"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="GitHub"
@@ -139,7 +139,7 @@ export default function HomeContent() {
                 asChild
               >
                 <a
-                  href="https://instagram.com/"
+                  href="https://instagram.com/armansinghz"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Instagram"
@@ -155,7 +155,7 @@ export default function HomeContent() {
                 asChild
               >
                 <a
-                  href="https://discord.com/users/"
+                  href="https://discord.com/users/1010197490823340184"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Discord"
