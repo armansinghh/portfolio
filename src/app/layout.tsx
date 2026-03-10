@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Meowl } from "@/components/Meowl";
 import { ThemeProvider } from "@/components/providers/themeProvider";
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body>
        
         <ThemeProvider>
-
+          <Meowl />
           <div className="mx-auto max-w-2xl px-5 sm:px-6 lg:px-8 flex flex-col pt-12 min-h-screen">
 
             <Navbar />
