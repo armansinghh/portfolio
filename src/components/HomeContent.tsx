@@ -20,7 +20,7 @@ export default function HomeContent() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText('npx arman');
+    await navigator.clipboard.writeText('npx hello arman');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -101,7 +101,7 @@ export default function HomeContent() {
               <Terminal className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
 
               <code className="font-mono text-sm text-foreground">
-                npx arman
+                npx hello arman
               </code>
 
               <div className="pl-3 border-l border-border/50 ml-1">

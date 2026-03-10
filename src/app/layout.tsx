@@ -1,10 +1,11 @@
-import '@/styles/globals.css';
+import "@/styles/globals.css";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Arman | Portfolio",
-  description: "Personal developer portfolio",
+  title: "Arman Singh",
+  description: "Developer Portfolio",
 };
 
 export default function RootLayout({
@@ -14,14 +15,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white min-h-screen flex flex-col">
-        <Navbar />
+      <body>
 
-        <main className="flex-1">
-          {children}
-        </main>
+        <div className="mx-auto max-w-2xl px-5 sm:px-6 lg:px-8 flex flex-col pt-12 min-h-screen">
 
-        <Footer />
+          <Navbar />
+
+          <main className="grow">
+            {children}
+          </main>
+
+          <Footer />
+
+        </div>
+
       </body>
     </html>
   );
