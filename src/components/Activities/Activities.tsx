@@ -14,6 +14,7 @@ import {
   Github,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import NowPlayingInline from './NowPlayingInLine';
 
 // TEMP: comment missing components
 // import NowPlayingInline from './NowPlayingInLine';
@@ -71,8 +72,7 @@ export default function Activities() {
 
         {/* Now Playing */}
         <ActivityCard icon={Music} label="Now Playing">
-          {/* <NowPlayingInline /> */}
-          Spotify coming soon 🎧
+          <NowPlayingInline />
         </ActivityCard>
 
         {/* Discord */}
