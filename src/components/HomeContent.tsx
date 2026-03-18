@@ -13,14 +13,14 @@ const Typewriter = dynamic(() => import('typewriter-effect'), {
 });
 
 // Lazy load components below the fold (temporarily disabled)
-// const Activities = lazy(() => import('@/components/myComponents/Activities/Activities'));
+const Activities = lazy(() => import('@/components/Activities/Activities'));
 // const DiscordMessageBox = lazy(() => import('@/components/myComponents/Contact/MessageBox'));
 
 export default function HomeContent() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText('npx hello arman');
+    await navigator.clipboard.writeText('npx armansingh');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -101,7 +101,7 @@ export default function HomeContent() {
               <Terminal className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
 
               <code className="font-mono text-sm text-foreground">
-                npx hello arman
+                npx armansingh
               </code>
 
               <div className="pl-3 border-l border-border/50 ml-1">
@@ -169,11 +169,10 @@ export default function HomeContent() {
         </main>
 
         {/* Activities section temporarily disabled */}
-        {/*
         <Suspense fallback={<div className="h-40 animate-pulse bg-muted rounded-lg" />}>
           <Activities />
         </Suspense>
-        */}
+
 
         {/* Message section temporarily disabled */}
         {/*
