@@ -89,8 +89,11 @@ const ActivityCard = ({
 
 export default function Activities() {
   const { resolvedTheme } = useTheme();
-  const light_url = '/github-contributions-light.svg';
-  const dark_url = '/github-contributions-dark.svg';
+const light_url =
+  "https://raw.githubusercontent.com/armansinghh/armansinghh/output/pacman-contribution-graph.svg";
+
+const dark_url =
+  "https://raw.githubusercontent.com/armansinghh/armansinghh/output/pacman-contribution-graph-dark.svg";
 
   const [mounted, setMounted] = useState(false);
   const [graphUrl, setGraphUrl] = useState<string>(dark_url);
