@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import NowPlayingInline from './NowPlayingInLine';
-// import DiscordStatusInline from './Discord';
+import DiscordStatusInline from './DiscordStatusInline';
 // import LocationTime from './LocationTime';
 // import LatestCommitActivity from './LatestCommitActivity';
 
@@ -173,7 +173,7 @@ const dark_url =
           onClick={() => window.dispatchEvent(new CustomEvent('open-discord-modal'))}
         >
           <div className="truncate">
-            {/* <DiscordStatusInline /> */}
+            <DiscordStatusInline />
           </div>
         </ActivityCard>
 

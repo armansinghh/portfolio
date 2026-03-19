@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
-// import { NowPlayingModal, DiscordModal, CommitDiffModal } from '../modals';
-import { NowPlayingModal } from '../modals/NowPlayingModal';
+import { NowPlayingModal, DiscordModal} from '../modals';
+
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -120,13 +120,13 @@ export function GlobalModalProvider({ children }: GlobalModalProviderProps) {
         onClose={() => setNowPlayingModalOpen(false)}
       />
 
-      {/* <DiscordModal
+      <DiscordModal
         isOpen={discordModalOpen}
         onClose={() => setDiscordModalOpen(false)}
         data={discordData}
       />
 
-      <CommitDiffModal
+      {/* <CommitDiffModal
         isOpen={commitModalOpen}
         onClose={handleCloseCommitModal}
         diff={commitDiff}
