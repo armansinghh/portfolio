@@ -19,11 +19,31 @@ const DiscordMessageBox = lazy(() => import("@/components/Contact/MessageBox"));
 export default function HomeContent() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText("npx armansingh");
+const handleCopy = async () => {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText("npx armansingh");
+    } else {
+      // 🔥 fallback for mobile / unsupported browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = "npx armansingh";
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
+
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
+  } catch (err) {
+    console.error("Copy failed:", err);
+  }
+};
 
   return (
     <>
