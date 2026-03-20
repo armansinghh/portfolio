@@ -14,8 +14,8 @@ export function NowPlayingModal({ isOpen, onClose }: NowPlayingModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-background border border-border rounded-xl shadow-2xl max-w-lg w-full overflow-hidden">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={onClose}>
+      <div className="bg-background border border-border rounded-xl shadow-2xl max-w-lg w-full overflow-hidden" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-border/50 bg-muted/20">
           <div className="flex items-center gap-2">

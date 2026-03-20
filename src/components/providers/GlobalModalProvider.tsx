@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import useSWR from 'swr';
-import { NowPlayingModal, DiscordModal } from '../modals';
-import { CommitModal } from '../modals/CommitModal';
+import React, { useState, useEffect } from "react";
+import useSWR from "swr";
+import { NowPlayingModal, DiscordModal } from "../modals";
+import { CommitModal } from "../modals/CommitModal";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -17,12 +17,12 @@ export function GlobalModalProvider({ children }: GlobalModalProviderProps) {
   const [commitModalOpen, setCommitModalOpen] = useState(false);
 
   // ✅ Discord
-  const { data: discordData } = useSWR('/api/get-discord-status', fetcher, {
+  const { data: discordData } = useSWR("/api/get-discord-status", fetcher, {
     refreshInterval: 5000,
   });
 
   // ✅ SINGLE SOURCE OF TRUTH (IMPORTANT)
-  const { data: commitDataRaw } = useSWR('/api/commits', fetcher, {
+  const { data: commitDataRaw } = useSWR("/api/commits", fetcher, {
     refreshInterval: 1000 * 60 * 5,
   });
 
@@ -34,20 +34,39 @@ export function GlobalModalProvider({ children }: GlobalModalProviderProps) {
     const handleOpenNowPlayingModal = () => setNowPlayingModalOpen(true);
     const handleOpenCommitModal = () => setCommitModalOpen(true);
 
-    window.addEventListener('open-discord-modal', handleOpenDiscordModal);
-    window.addEventListener('open-now-playing-modal', handleOpenNowPlayingModal);
-    window.addEventListener('open-commit-modal', handleOpenCommitModal);
+    window.addEventListener("open-discord-modal", handleOpenDiscordModal);
+    window.addEventListener(
+      "open-now-playing-modal",
+      handleOpenNowPlayingModal,
+    );
+    window.addEventListener("open-commit-modal", handleOpenCommitModal);
 
     return () => {
-      window.removeEventListener('open-discord-modal', handleOpenDiscordModal);
-      window.removeEventListener('open-now-playing-modal', handleOpenNowPlayingModal);
-      window.removeEventListener('open-commit-modal', handleOpenCommitModal);
+      window.removeEventListener("open-discord-modal", handleOpenDiscordModal);
+      window.removeEventListener(
+        "open-now-playing-modal",
+        handleOpenNowPlayingModal,
+      );
+      window.removeEventListener("open-commit-modal", handleOpenCommitModal);
     };
   }, []);
+  useEffect(() => {
+    const isAnyModalOpen =
+      nowPlayingModalOpen || discordModalOpen || commitModalOpen;
 
+    if (isAnyModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [nowPlayingModalOpen, discordModalOpen, commitModalOpen]);
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' || event.key === 'q') {
+      if (event.key === "Escape" || event.key === "q") {
         if (nowPlayingModalOpen || discordModalOpen || commitModalOpen) {
           event.preventDefault();
           setNowPlayingModalOpen(false);
@@ -57,8 +76,8 @@ export function GlobalModalProvider({ children }: GlobalModalProviderProps) {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [nowPlayingModalOpen, discordModalOpen, commitModalOpen]);
 
   return (

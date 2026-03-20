@@ -53,8 +53,8 @@ export function DiscordModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="w-full max-w-md rounded-2xl border border-border bg-background overflow-hidden shadow-2xl">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={onClose}>
+      <div className="w-full max-w-md rounded-2xl border border-border bg-background overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
 
         {/* Banner */}
         <div className="h-24 bg-muted relative">
