@@ -1,7 +1,20 @@
+import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa';
+
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-neutral-800 px-6 py-6 text-center text-sm text-neutral-500">
-      © {new Date().getFullYear()} Arman. All rights reserved.
-    </footer>
+    <section className="mt-12 border-t pt-4 pb-6">
+      <footer className="text-sm text-muted-foreground flex justify-between items-center w-full mono">
+        <div>© 2026 Arman Singh</div>
+        <Link
+          href="https://github.com/armansinghh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline flex items-center gap-1"
+        >
+          <FaGithub className="text-xl" /> GitHub
+        </Link>
+      </footer>
+    </section>
   );
 }
