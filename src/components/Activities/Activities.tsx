@@ -99,7 +99,7 @@ const dark_url =
   const [mounted, setMounted] = useState(false);
   const [graphUrl, setGraphUrl] = useState<string>(dark_url);
   const [imageError, setImageError] = useState<boolean>(true);
-  const [onekoEnabled, setOnekoEnabled] = useState(true);
+  const [meowlEnabled, setMeowlEnabled] = useState(true);
   const [isDesktop, setIsDesktop] = useState(false);
 
   // Handle mounting to avoid hydration mismatch
@@ -113,24 +113,24 @@ const dark_url =
     window.addEventListener('resize', checkDesktop);
 
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('oneko-enabled');
-      if (saved !== null) setOnekoEnabled(saved === 'true');
+      const saved = localStorage.getItem('meowl-enabled');
+      if (saved !== null) setMeowlEnabled(saved === 'true');
     }
 
-    const handleOnekoToggle = (event: CustomEvent) => setOnekoEnabled(event.detail.enabled);
-    window.addEventListener('oneko-toggle', handleOnekoToggle as EventListener);
+    const handleMeowlToggle = (event: CustomEvent) => setMeowlEnabled(event.detail.enabled);
+    window.addEventListener('meowl-toggle', handleMeowlToggle as EventListener);
 
     return () => {
       window.removeEventListener('resize', checkDesktop);
-      window.removeEventListener('oneko-toggle', handleOnekoToggle as EventListener);
+      window.removeEventListener('meowl-toggle', handleMeowlToggle as EventListener);
     };
   }, []);
 
-  const toggleOneko = () => {
-    const newState = !onekoEnabled;
-    setOnekoEnabled(newState);
-    localStorage.setItem('oneko-enabled', newState.toString());
-    window.dispatchEvent(new CustomEvent('oneko-toggle', { detail: { enabled: newState } }));
+  const toggleMeowl = () => {
+    const newState = !meowlEnabled;
+    setMeowlEnabled(newState);
+    localStorage.setItem('meowl-enabled', newState.toString());
+    window.dispatchEvent(new CustomEvent('meowl-toggle', { detail: { enabled: newState } }));
   };
 
   useEffect(() => {
@@ -226,23 +226,23 @@ const dark_url =
           <ActivityCard
             icon={Cat}
             label="Meowl"
-            onClick={toggleOneko}
+            onClick={toggleMeowl}
             className="col-span-1 min-h-22.5 justify-between"
           >
             <div className="flex items-center gap-2">
               <span
                 className={cn(
                   'w-1.5 h-1.5 rounded-full ring-2 ring-background',
-                  onekoEnabled ? 'bg-green-500' : 'bg-zinc-600'
+                  meowlEnabled ? 'bg-green-500' : 'bg-zinc-600'
                 )}
               />
               <span
                 className={cn(
                   'text-xs font-medium',
-                  onekoEnabled ? 'text-foreground' : 'text-muted-foreground'
+                  meowlEnabled ? 'text-foreground' : 'text-muted-foreground'
                 )}
               >
-                {onekoEnabled ? 'On' : 'Off'}
+                {meowlEnabled ? 'On' : 'Off'}
               </span>
             </div>
           </ActivityCard>

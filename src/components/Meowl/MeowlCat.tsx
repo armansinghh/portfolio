@@ -263,7 +263,7 @@ export default function OnekoCat({ enabled = true, catImage = '/meowl/meowl.gif'
   // Reset position when component mounts and load saved state
   useEffect(() => {
     // Load saved state from localStorage
-    const savedNeko = localStorage.getItem('oneko-cat');
+    const savedNeko = localStorage.getItem('meowl-cat');
     if (savedNeko) {
       try {
         const parsed = JSON.parse(savedNeko);
@@ -310,7 +310,7 @@ export default function OnekoCat({ enabled = true, catImage = '/meowl/meowl.gif'
           idleAnimationFrame: catStateRef.current.idleAnimationFrame,
           bgPos: catRef.current.style.backgroundPosition || '0px 0px',
         };
-        localStorage.setItem('oneko-cat', JSON.stringify(stateToSave));
+        localStorage.setItem('meowl-cat', JSON.stringify(stateToSave));
       }
     };
 
@@ -323,9 +323,9 @@ export default function OnekoCat({ enabled = true, catImage = '/meowl/meowl.gif'
   return (
     <div
       ref={catRef}
-      id="oneko-cat"
+      id="meowl-cat"
       aria-hidden="true"
-      className="oneko-cat"
+      className="meowl-cat"
       style={{
         backgroundImage: `url(${catImage})`,
         left: `${catStateRef.current.nekoPosX - 16}px`,
