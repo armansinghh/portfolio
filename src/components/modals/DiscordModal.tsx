@@ -1,7 +1,7 @@
-﻿"use client";
+﻿'use client';
 
 import Image from "next/image";
-import { ExternalLink, Gamepad2, Trophy, Zap, Code2 } from "lucide-react";
+import { ExternalLink, Gamepad2, Trophy, Zap, Code2, X } from "lucide-react";
 import {
   Tooltip,
   TooltipTrigger,
@@ -23,7 +23,7 @@ export function DiscordModal({
   const status = data.data.discord_status;
   const activities = data.data.activities || [];
 
-  const activity = activities.find((a: any) => a.type !== 4); // ignore custom status
+  const activity = activities.find((a: any) => a.type !== 4);
 
   const getAvatarUrl = () => {
     if (user.avatar) {
@@ -48,25 +48,27 @@ export function DiscordModal({
       case "dnd":
         return "bg-red-500";
       default:
-        return "bg-zinc-500";
+        return "bg-muted";
     }
   };
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="w-full max-w-md rounded-2xl border border-zinc-800 bg-zinc-950 overflow-hidden shadow-2xl">
-        {/* Top Banner */}
-        <div className="h-24 bg-zinc-900 relative">
+      <div className="w-full max-w-md rounded-2xl border border-border bg-background overflow-hidden shadow-2xl">
+
+        {/* Banner */}
+        <div className="h-24 bg-muted relative">
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-zinc-700 transition"
+            className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-card hover:bg-muted transition text-muted-foreground hover:text-foreground"
           >
-            ✕
+            <X size={16} />
           </button>
         </div>
 
         {/* Content */}
         <div className="px-6 pb-6 -mt-10">
+
           {/* Avatar */}
           <div className="flex items-end gap-4 mb-4">
             <div className="relative">
@@ -76,26 +78,26 @@ export function DiscordModal({
                 width={72}
                 height={72}
                 unoptimized
-                className="rounded-full border-4 border-zinc-950 object-cover"
+                className="rounded-full border-4 border-background object-cover"
               />
               <span
-                className={`absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-zinc-950 ${getStatusColor()}`}
+                className={`absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-background ${getStatusColor()}`}
               />
             </div>
           </div>
 
-          {/* Profile Card */}
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 mb-6">
-            <p className="text-lg font-semibold text-white">
+          {/* Profile */}
+          <div className="rounded-xl border border-border bg-card p-4 mb-6">
+            <p className="text-lg font-semibold text-foreground">
               {user.global_name || user.username}
             </p>
-            <p className="text-sm text-zinc-400">@{user.username}</p>
+            <p className="text-sm text-muted-foreground">@{user.username}</p>
 
-            {/* Optional icons row */}
-            <div className="flex gap-2 mt-3 text-zinc-400">
+            {/* Icons */}
+            <div className="flex gap-2 mt-3 text-muted-foreground">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="w-7 h-7 rounded-md bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition cursor-pointer">
+                  <div className="w-7 h-7 rounded-md bg-muted flex items-center justify-center hover:bg-accent transition cursor-pointer">
                     <Trophy size={14} />
                   </div>
                 </TooltipTrigger>
@@ -104,7 +106,7 @@ export function DiscordModal({
 
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="w-7 h-7 rounded-md bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition cursor-pointer">
+                  <div className="w-7 h-7 rounded-md bg-muted flex items-center justify-center hover:bg-accent transition cursor-pointer">
                     <Zap size={14} />
                   </div>
                 </TooltipTrigger>
@@ -113,7 +115,7 @@ export function DiscordModal({
 
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="w-7 h-7 rounded-md bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition cursor-pointer">
+                  <div className="w-7 h-7 rounded-md bg-muted flex items-center justify-center hover:bg-accent transition cursor-pointer">
                     <Code2 size={14} />
                   </div>
                 </TooltipTrigger>
@@ -122,30 +124,28 @@ export function DiscordModal({
             </div>
           </div>
 
-          {/* Activity Section */}
+          {/* Activity */}
           {activity && (
             <>
-              <p className="text-xs text-zinc-500 uppercase tracking-wider mb-3">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
                 Current Activity
               </p>
 
-              <div className="flex gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-900/40 mb-6">
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-lg bg-zinc-800 flex items-center justify-center">
-                  <Gamepad2 size={28} className="text-zinc-400" />
+              <div className="flex gap-4 p-4 rounded-xl border border-border bg-card mb-6">
+                <div className="w-16 h-16 rounded-lg bg-muted flex items-center justify-center">
+                  <Gamepad2 size={28} className="text-muted-foreground" />
                 </div>
 
-                {/* Info */}
                 <div className="flex flex-col justify-center">
-                  <p className="text-sm text-zinc-400">
+                  <p className="text-sm text-muted-foreground">
                     Playing{" "}
-                    <span className="text-white font-semibold">
+                    <span className="text-foreground font-semibold">
                       {activity.name}
                     </span>
                   </p>
 
                   {activity.timestamps?.start && (
-                    <p className="text-xs text-zinc-500 mt-2">
+                    <p className="text-xs text-muted-foreground mt-2">
                       {(() => {
                         const start = new Date(activity.timestamps.start);
                         const diff = Math.floor(
@@ -167,7 +167,7 @@ export function DiscordModal({
             href={`https://discord.com/users/${user.id}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-zinc-200 text-black font-medium hover:bg-zinc-300 transition active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition active:scale-[0.98]"
           >
             <ExternalLink size={16} />
             View Full Profile
