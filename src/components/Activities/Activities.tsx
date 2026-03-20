@@ -20,7 +20,7 @@ import { cn } from '@/lib/utils';
 import NowPlayingInline from './NowPlayingInLine';
 import DiscordStatusInline from './DiscordStatusInline';
 // import LocationTime from './LocationTime';
-// import LatestCommitActivity from './LatestCommitActivity';
+import LatestCommitActivity from './LatestCommitActivity';
 
 // Reusable Card Component
 const ActivityCard = ({
@@ -203,14 +203,14 @@ const dark_url =
         </ActivityCard>
 
         {/* Row 3: Git, Guestbook, Cat (Desktop) */}
-        {/* <ActivityCard
-          className="col-span-2 min-h-[90px]"
+        <ActivityCard
+          className="col-span-2 min-h-22.5"
           icon={GitCommit}
           label="Latest Commit"
           onClick={() => window.dispatchEvent(new CustomEvent('open-commit-modal'))}
         >
           <LatestCommitActivity />
-        </ActivityCard> */}
+        </ActivityCard>
 
         <ActivityCard
           href="/guestbook"
