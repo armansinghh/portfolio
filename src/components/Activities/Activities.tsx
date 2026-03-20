@@ -17,9 +17,10 @@ import {
   Github,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { activity } from '@/data/activity';
 import NowPlayingInline from './NowPlayingInLine';
 import DiscordStatusInline from './DiscordStatusInline';
-// import LocationTime from './LocationTime';
+import LocationTime from './LocationTime';
 import LatestCommitActivity from './LatestCommitActivity';
 
 // Reusable Card Component
@@ -180,25 +181,25 @@ const dark_url =
         {/* Row 2: Location, Reading, Watching, Status */}
         <ActivityCard icon={MapPin} label="Location" actionIcon={false} className="min-h-27.5">
           <div className="leading-tight">
-            {/* <LocationTime /> */}
+            <LocationTime />
           </div>
         </ActivityCard>
 
         <ActivityCard icon={BookOpen} label="Reading" actionIcon={false} className="min-h-27.5">
           <span className="italic block mt-1 truncate" title="LOTM >.<">
-            "LOTM {'>.<'}"
+            {activity.reading}
           </span>
         </ActivityCard>
 
         <ActivityCard icon={Monitor} label="Watching" actionIcon={false} className="min-h-27.5">
           <span className="italic block mt-1 truncate" title="Open-Source 👒">
-            "Open-Source 👒"
+            {activity.watching}
           </span>
         </ActivityCard>
 
         <ActivityCard icon={Zap} label="Status" actionIcon={false} className="min-h-27.5">
           <div className="line-clamp-3" title="Building my personal site 🚀">
-            Building my personal site 🚀
+            {activity.status}
           </div>
         </ActivityCard>
 
