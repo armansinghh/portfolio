@@ -10,7 +10,7 @@ import {
 } from '@/data/techstack';
 
 import TechStack from '@/components/stats/TechStack';
-import LatestCommitActivity from '@/components/Activities/LatestCommitActivity';
+import LatestCommitActivity from '@/components/activities/LatestCommitActivity';
 
 export const metadata: Metadata = {
   title: 'About - Arman Singh',

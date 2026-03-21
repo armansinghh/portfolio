@@ -1,7 +1,7 @@
 'use client';
 
 import { X, Play, Pause, ExternalLink, Music, Radio } from 'lucide-react';
-import { useNowPlaying } from '../Activities/useNowPlaying';
+import { useNowPlaying } from '../activities/useNowPlaying';
 
 interface NowPlayingModalProps {
   isOpen: boolean;
