@@ -137,12 +137,17 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     font-family: var(--font-dm-sans);
     @apply bg-background text-foreground;
     transition:
       background-color 0.6s ease,
       color 0.6s ease;
+  }
+
+  body::-webkit-scrollbar {
+    display: none !important;
   }
 
   /* @media (pointer: fine) {
@@ -156,6 +161,7 @@
   .mono {
     font-family: var(--font-jetbrains-mono);
   }
+
   /* Apply to shadcn components */
   .card,
   .popover,
@@ -210,13 +216,17 @@
   }
 
   .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
+    /* Chrome, Safari and Opera */
   }
+
   prose .anchor {
     @apply absolute invisible no-underline;
 
@@ -240,7 +250,7 @@
     content: '#';
   }
 
-  .prose *:hover > .anchor {
+  .prose *:hover>.anchor {
     @apply visible;
   }
 
@@ -249,12 +259,14 @@
      use the utility class `text-blue-500` (commits and code links). */
   a.text-blue-500 {
     /* darker blue for sufficient contrast on light backgrounds */
-    color: #1d4ed8; /* Tailwind blue-700 */
+    color: #1d4ed8;
+    /* Tailwind blue-700 */
   }
 
   .dark a.text-blue-500 {
     /* lighter blue for sufficient contrast on dark backgrounds */
-    color: #60a5fa; /* Tailwind blue-400 */
+    color: #60a5fa;
+    /* Tailwind blue-400 */
   }
 
   .prose pre {
@@ -312,7 +324,7 @@
     @apply list-decimal pl-6;
   }
 
-  .prose > :first-child {
+  .prose> :first-child {
     /* Override removing top margin, causing layout shift */
     margin-top: 1.25em !important;
     margin-bottom: 1.25em !important;
@@ -323,8 +335,10 @@
   }
 
   pre {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   /* Remove Safari input shadow on mobile */
@@ -334,7 +348,49 @@
     -moz-appearance: none;
     appearance: none;
   }
+
   html {
     @apply font-sans;
   }
+}
+
+/* ================= Scrollbar Styling ================= */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.7 0 0 / 0.4);
+  /* light mode */
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.5 0 0 / 0.6);
+}
+
+/* Dark mode */
+.dark ::-webkit-scrollbar-thumb {
+  background: oklch(0.4 0 0 / 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.6 0 0 / 0.7);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.7 0 0 / 0.4) transparent;
+}
+
+.dark * {
+  scrollbar-color: oklch(0.4 0 0 / 0.5) transparent;
 }

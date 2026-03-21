@@ -173,7 +173,7 @@ const dark_url =
           label="Discord Status"
           onClick={() => window.dispatchEvent(new CustomEvent('open-discord-modal'))}
         >
-          <div className="truncate">
+          <div className="truncate" title="Click to view details">
             <DiscordStatusInline />
           </div>
         </ActivityCard>
@@ -186,19 +186,19 @@ const dark_url =
         </ActivityCard>
 
         <ActivityCard icon={BookOpen} label="Reading" actionIcon={false} className="min-h-27.5">
-          <span className="italic block mt-1 truncate" title="LOTM >.<">
+          <span className="italic block mt-1 truncate">
             {activity.reading}
           </span>
         </ActivityCard>
 
         <ActivityCard icon={Monitor} label="Watching" actionIcon={false} className="min-h-27.5">
-          <span className="italic block mt-1 truncate" title="Open-Source 👒">
+          <span className="italic block mt-1 truncate">
             {activity.watching}
           </span>
         </ActivityCard>
 
         <ActivityCard icon={Zap} label="Status" actionIcon={false} className="min-h-27.5">
-          <div className="line-clamp-3" title="Building my personal site 🚀">
+          <div className="line-clamp-3">
             {activity.status}
           </div>
         </ActivityCard>

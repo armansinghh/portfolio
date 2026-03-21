@@ -169,8 +169,6 @@ const handleCopy = async () => {
       p-6 rounded-2xl border transition-all duration-300 backdrop-blur-sm
       bg-white border-zinc-200
       dark:bg-zinc-900/30 dark:border-zinc-800/50
-      hover:border-zinc-300 dark:hover:border-zinc-700
-      hover:shadow-sm
     "
             >
               <p className="text-sm text-muted-foreground mb-4">

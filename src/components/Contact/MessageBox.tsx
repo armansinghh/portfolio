@@ -20,9 +20,9 @@ import * as z from "zod";
 /* ---------------- VALIDATION ---------------- */
 const formSchema = z.object({
   email: z.string().email({ message: "Enter a valid email" }),
-  message: z.string().min(10, { message: "Message too short" }),
+  message: z.string().min(10, { message: "Message too short" }).max(1000, { message: "Message too long" }),
 
-  // 🔥 honeypot (hidden field)
+  //honeypot (hidden field)
   company: z.string().optional(),
 });
 
@@ -121,6 +121,7 @@ export default function MessageBox() {
                   placeholder="Write your message..."
                   {...field}
                   rows={4}
+                  className="max-h-40 resize-none overflow-y-auto"
                 />
               </FormControl>
               <FormMessage />
@@ -140,7 +141,7 @@ export default function MessageBox() {
         <Button
           type="submit"
           disabled={status === "sending"}
-          className="w-full h-11 rounded-lg text-sm font-medium"
+          className="w-full h-11 rounded-lg text-sm font-medium hover:bg-primary/90"
         >
           {status === "sending"
             ? "Sending..."
