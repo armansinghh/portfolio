@@ -49,7 +49,7 @@ const handleCopy = async () => {
     <>
       <div className="flex flex-col">
         {/* ================= HERO ================= */}
-        <main className="grow px-4 max-w-3xl mx-auto py-8">
+        <section className="grow px-4 max-w-3xl mx-auto py-8">
           <h1 className="text-4xl font-bold mb-4">Arman Singh</h1>
 
           <div className="text-xl sm:text-2xl text-muted-foreground font-medium h-8 flex items-center mb-8">
@@ -138,7 +138,7 @@ const handleCopy = async () => {
               </Button>
             </div>
           </div>
-        </main>
+        </section>
 
         {/* ================= ACTIVITIES ================= */}
         <Suspense

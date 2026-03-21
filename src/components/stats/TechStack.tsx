@@ -18,7 +18,7 @@ export default function TechStack({ techStack }: { techStack: Tech[] }) {
           whileHover={{ scale: 1.02 }}
         >
           {/* Icon */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             {tech.icon}
           </div>
 

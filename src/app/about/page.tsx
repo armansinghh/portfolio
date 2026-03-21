@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+
 import {
   languages,
   coreweb,
@@ -39,115 +40,72 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* SEO Breadcrumbs */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <div className="flex flex-col">
-        <main className="grow px-4 max-w-3xl mx-auto py-8 space-y-10">
-
-          {/* Heading */}
+        <section className="px-4 max-w-3xl py-8 space-y-6">
           <h1 className="text-4xl font-bold">About Me</h1>
 
-          {/* Intro */}
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
               I’m Arman Singh — a developer focused on building scalable web
               applications and exploring machine learning.
             </p>
-
             <p>
               I work with modern technologies like Next.js, TypeScript, and backend
               systems to create clean and efficient user experiences.
             </p>
-
             <p>
               I enjoy turning ideas into real products and care about both how
               things work and how they feel.
             </p>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-border/40" />
+        <section className="max-w-3xl space-y-8 mt-16">
+          <h2 className="text-2xl font-semibold">🛠 Technologies & Tools</h2>
 
-          {/* Tech Stack */}
-          <section className="space-y-6">
-            <h2 className="text-2xl font-semibold">🛠 Technologies & Tools</h2>
+          <TechGroup title="Languages 🧠" data={languages} />
+          <TechGroup title="Core Web 🌐" data={coreweb} />
+          <TechGroup title="Frontend 🎨" data={frontend} />
+          <TechGroup title="Cloud ☁️" data={cloud} />
+          <TechGroup title="Tools 🛠" data={tools} />
+          <TechGroup title="Design 🎭" data={design} />
+        </section>
 
-            <div className="space-y-8">
+        <section className="max-w-3xl space-y-4 mt-16">
+          <h2 className="text-2xl font-semibold">GitHub Activity</h2>
 
-              <div>
-                <p className="text-sm text-muted-foreground mono mb-3">
-                  Languages 🧠
-                </p>
-                <TechStack techStack={languages} />
-              </div>
+          <div className="p-4 rounded-xl border bg-card">
+            <LatestCommitActivity />
+          </div>
+        </section>
 
-              <div>
-                <p className="text-sm text-muted-foreground mono mb-3">
-                  Core Web 🌐
-                </p>
-                <TechStack techStack={coreweb} />
-              </div>
+        <section className="max-w-3xl space-y-4 mt-16">
+          <h2 className="text-2xl font-semibold">Interests</h2>
 
-              <div>
-                <p className="text-sm text-muted-foreground mono mb-3">
-                  Frontend 🎨
-                </p>
-                <TechStack techStack={frontend} />
-              </div>
+          <p className="text-muted-foreground leading-relaxed">
+            In my free time, I explore new technologies, build side projects,
+            and experiment with UI/UX and AI. I enjoy improving performance,
+            design, and overall user experience.
+          </p>
+        </section>
 
-              <div>
-                <p className="text-sm text-muted-foreground mono mb-3">
-                  Cloud & Deployment ☁️
-                </p>
-                <TechStack techStack={cloud} />
-              </div>
-
-              <div>
-                <p className="text-sm text-muted-foreground mono mb-3">
-                  Developer Tools 🛠
-                </p>
-                <TechStack techStack={tools} />
-              </div>
-
-              <div>
-                <p className="text-sm text-muted-foreground mono mb-3">
-                  Design 🎭
-                </p>
-                <TechStack techStack={design} />
-              </div>
-
-            </div>
-          </section>
-
-          <div className="border-t border-border/40" />
-
-          {/* GitHub Activity */}
-          <section className="space-y-4">
-            <h2 className="text-2xl font-semibold">GitHub Activity</h2>
-
-            <div className="p-4 rounded-xl border bg-card">
-              <LatestCommitActivity />
-            </div>
-          </section>
-
-          <div className="border-t border-border/40" />
-
-          {/* Interests */}
-          <section className="space-y-4">
-            <h2 className="text-2xl font-semibold">Interests</h2>
-
-            <p className="text-muted-foreground leading-relaxed">
-              In my free time, I explore new technologies, build side projects,
-              and experiment with UI/UX and AI. I enjoy improving performance,
-              design, and overall user experience.
-            </p>
-          </section>
-
-        </main>
       </div>
     </>
+  );
+}
+
+function TechGroup({ title, data }: any) {
+  return (
+    <div className="space-y-3">
+      <p className="text-sm text-muted-foreground mono">
+        {title}
+      </p>
+      <TechStack techStack={data} />
+    </div>
   );
 }
