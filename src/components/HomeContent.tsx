@@ -61,9 +61,10 @@ const handleCopy = async () => {
             <Typewriter
               options={{
                 strings: [
-                  "Full Stack Developer",
+                  "Frontend Developer",
                   "Tech Enthusiast",
                   "Open For Internships",
+                  "Exploring AI & ML",
                 ],
                 autoStart: true,
                 loop: true,

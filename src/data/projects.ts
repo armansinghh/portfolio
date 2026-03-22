@@ -17,7 +17,7 @@ export type Project = {
   featured?: boolean;
 
   features?: string[]; // optional (modal)
-  
+
   status?: "in-progress" | "completed" | "mvp"; // optional status field
 };
 
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     image: "/projects/project-1.png",
     tech: ["Python", "PyTorch", "OpenCV", "CRNN"],
     featured: true,
-    github: "https://github.com/your-repo",
+    github: "https://github.com/armansinghh/handwriting-crnn",
     features: [
       "Image preprocessing pipeline",
       "CRNN-based architecture",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "Buzz is a social platform built with React and TypeScript, focusing on clean architecture and scalable UI patterns. It features structured media posts, modal-driven interactions, and a content-first state management approach. The project emphasizes maintainability and frontend system design.",
     image: "/projects/project-2.png",
     tech: ["React", "TypeScript", "Next.js", "UI Architecture"],
-    github: "https://github.com/your-repo",
+    github: "https://github.com/armansinghh/buzz-social",
     features: [
       "Structured media posts",
       "Modal-based UX system",
@@ -70,7 +70,8 @@ export const projects: Project[] = [
       "Built during a hackathon, FreshStart AI is an MVP designed to assist students with academic workflows, including syllabus tracking, study guidance, and exam preparation. It integrates Gemini API to provide intelligent responses and structured assistance.",
     image: "/projects/project-3.png",
     tech: ["React", "TypeScript", "Gemini API", "AI"],
-    github: "https://github.com/your-repo",
+    github: "https://github.com/armansinghh/freshstart-ai",
+    live: "https://freshstart-ai.vercel.app",
     features: [
       "AI-powered responses",
       "Academic workflow assistance",
@@ -89,12 +90,12 @@ export const projects: Project[] = [
       "A unique take on personal branding, Arman CLI allows users to explore my portfolio directly from their terminal using a single command. Built with Node.js, it simulates an interactive CLI environment to showcase projects, links, and developer information in a native terminal experience.",
     image: "/projects/project-4.png",
     tech: ["Node.js", "JavaScript", "CLI"],
-    github: "https://github.com/your-repo",
+    github: "https://github.com/armansinghh/arman-cli",
     features: [
-      "Interactive CLI interface",
-      "npx-based execution",
-      "Terminal-first experience",
-      "Lightweight and fast",
+      "No install — runs via npx",
+      "Interactive command menu",
+      "Projects, links & contact info",
+      "Cross-platform support",
     ],
     status: "completed",
   },
@@ -108,9 +109,14 @@ export const projects: Project[] = [
       "A lightweight project integrating Spotify API to display real-time currently playing music. Built using vanilla JavaScript, it focuses on API integration and dynamic UI updates.",
     image: "/projects/project-5.png",
     tech: ["JavaScript", "Spotify API", "HTML", "CSS"],
-    github: "https://github.com/your-repo",
-      live: "https://your-live-site.com",
-    status: "completed",  
+    github: "https://github.com/armansinghh/my-spotify-activity",
+    live: "https://my-spotify-activity.vercel.app",
+    features: [
+      "Live now-playing with album art",
+      "Spotify OAuth 2.0 flow",
+      "Real-time UI updates",
+    ],
+    status: "completed",
   },
 
   {
@@ -122,8 +128,14 @@ export const projects: Project[] = [
       "A modern portfolio showcasing projects, activity, and contact features. Built with Next.js and TypeScript, it focuses on performance, clean UI, and interactive user experience, along with proper SEO and structured architecture.",
     image: "/projects/project-6.png",
     tech: ["Next.js", "TypeScript", "Tailwind", "SEO"],
-    github: "https://github.com/your-repo",
-    live: "https://your-live-site.com",
+    github: "https://github.com/armansinghh/portfolio",
+    live: "https://armansingh.vercel.app",
+    features: [
+      "Next.js App Router & TypeScript",
+      "Live Spotify & Discord activity",
+      "SEO with Open Graph metadata",
+      "Fully responsive dark/light theme",
+    ],
     status: "completed",
   },
 ];

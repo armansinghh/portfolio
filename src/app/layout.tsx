@@ -67,7 +67,9 @@ export default function RootLayout({
             } catch (e) {}
           `}
         </Script>
-
+        <Script id="hydration-class" strategy="afterInteractive">
+          {`document.body.classList.add('hydrated');`}
+        </Script>
         <Providers>
           <ThemeProvider>
             <GlobalModalProvider>

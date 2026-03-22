@@ -177,7 +177,7 @@ export default function CustomCursor() {
       </svg>
       <div
         ref={containerRef}
-        className="pointer-events-none fixed top-0 left-0 z-[9999] h-full w-full mix-blend-difference"
+        className="pointer-events-none fixed top-0 left-0 z-9999 h-full w-full mix-blend-difference"
         style={{ filter: "url('#goo')" }}
       >
         {Array.from({ length: AMOUNT }).map((_, i) => (
@@ -186,7 +186,7 @@ export default function CustomCursor() {
             ref={(el) => {
               dotsRef.current[i] = el;
             }}
-            className="absolute block h-[26px] w-[26px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white will-change-transform"
+            className="absolute block h-6.5 w-6.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white will-change-transform"
           />
         ))}
       </div>

@@ -141,6 +141,10 @@
   body {
     font-family: var(--font-dm-sans);
     @apply bg-background text-foreground;
+    transition: none;
+  }
+
+  body.hydrated {
     transition:
       background-color 0.6s ease,
       color 0.6s ease;
@@ -151,6 +155,7 @@
   }
 
   @media (pointer: fine) {
+
     *,
     *::before,
     *::after {
@@ -355,7 +360,14 @@
 }
 
 /* ================= Scrollbar Styling ================= */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
 
+html::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 6px;

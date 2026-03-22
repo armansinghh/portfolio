@@ -40,7 +40,7 @@ export default function ProjectModal({ project, onClose }: Props) {
       />
 
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-5xl h-[90vh] overflow-hidden rounded-3xl bg-background border border-white/[0.08] shadow-2xl flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-300">
+      <div className="relative z-10 w-full max-w-5xl h-[90vh] overflow-hidden rounded-3xl bg-background border border-white/8 shadow-2xl flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-300">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -58,7 +58,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               alt={project.title}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
 
             {/* Title + Status */}
             <div className="absolute bottom-6 left-6 space-y-2">
@@ -96,7 +96,7 @@ export default function ProjectModal({ project, onClose }: Props) {
 
                 {/* Features */}
                 {project.features && (
-                  <div className="pt-6 border-t border-white/[0.06]">
+                  <div className="pt-6 border-t border-white/6">
                     <h3 className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest mb-4">
                       Key Features
                     </h3>
@@ -113,14 +113,14 @@ export default function ProjectModal({ project, onClose }: Props) {
               </div>
 
               {/* RIGHT */}
-              <div className="space-y-6 lg:border-l lg:border-white/[0.06] lg:pl-8">
+              <div className="space-y-6 lg:border-l lg:border-white/6 lg:pl-8">
                 {/* Actions */}
                 <div className="flex flex-col gap-3">
 {project.live && (
   <a
     href={project.live}
     target="_blank"
-    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-white text-black font-mono text-xs hover:bg-white/90 transition"
+    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-foreground text-background font-mono text-xs hover:opacity-90 transition"
   >
     <ArrowUpRight size={13} />
     visit live site
@@ -131,7 +131,7 @@ export default function ProjectModal({ project, onClose }: Props) {
   <a
     href={project.github}
     target="_blank"
-    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-white/[0.08] font-mono text-xs text-muted-foreground hover:bg-white/[0.04] hover:text-foreground transition"
+    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-border font-mono text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition"
   >
     {'>'} source code
   </a>
@@ -147,7 +147,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 rounded-md border border-white/[0.06] font-mono text-xs text-muted-foreground"
+                        className="px-3 py-1.5 rounded-md border border-white/6 font-mono text-xs text-muted-foreground"
                       >
                         {tech}
                       </span>

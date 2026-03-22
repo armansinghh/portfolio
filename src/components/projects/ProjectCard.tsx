@@ -15,7 +15,7 @@ export default function ProjectCard({ project, onClick }: Props) {
   return (
     <div
       onClick={onClick}
-      className="group relative cursor-pointer rounded-xl border border-white/[0.06] bg-card transition-all duration-300 hover:border-white/[0.12] hover:shadow-md"
+      className="group relative cursor-pointer rounded-xl border border-white/6 bg-card transition-all duration-300 hover:border-white/12 hover:shadow-md"
     >
       {/* Image */}
       <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
@@ -56,7 +56,7 @@ export default function ProjectCard({ project, onClick }: Props) {
           {project.tech.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="text-[10px] px-2 py-1 rounded-md border border-white/[0.06] text-muted-foreground font-mono"
+              className="text-[10px] px-2 py-1 rounded-md border border-white/6 text-muted-foreground font-mono"
             >
               {tech}
             </span>
