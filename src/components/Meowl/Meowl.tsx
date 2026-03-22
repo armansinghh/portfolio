@@ -49,5 +49,5 @@ export default function Meowl() {
 
   if (!isDesktop) return null;
 
-  return <MeowlCat enabled={isEnabled} catImage="/meowl/meowl.gif" />;
+  return <MeowlCat enabled={isEnabled} catImage="/Meowl/Meowl.gif" />;
 }
