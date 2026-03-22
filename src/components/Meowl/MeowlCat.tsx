@@ -8,7 +8,7 @@ interface MeowlCatProps {
   catImage?: string;
 }
 
-export default function MeowlCat({ enabled = true, catImage = '/Meowl/meowl.gif' }: MeowlCatProps) {
+export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif' }: MeowlCatProps) {
   const catRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   const [isVisible, setIsVisible] = useState(enabled);
