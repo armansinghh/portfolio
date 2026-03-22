@@ -55,7 +55,7 @@ export default function ProjectModal({ project, onClose }: Props) {
         <div className="overflow-y-auto h-full">
 
           {/* ================= HERO ================= */}
-          <div className="relative h-[350px] w-full">
+          <div className="relative h-87.5 w-full">
             <img
               src={project.image}
               alt={project.title}
@@ -63,7 +63,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             />
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
 
             {/* Title */}
             <div className="absolute bottom-6 left-6">
