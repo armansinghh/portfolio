@@ -1,10 +1,22 @@
 "use client";
 
+import type { Metadata } from "next";
 import { lazy, Suspense, useState } from "react";
 import dynamic from "next/dynamic";
 import { Copy, Check, Github, Instagram, Terminal } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Arman Singh",
+  },
+  description:
+    "Frontend developer building modern web applications with a focus on performance, clean design, and usability.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 // Dynamic imports
 const Typewriter = dynamic(() => import("typewriter-effect"), {
@@ -19,6 +31,7 @@ const DiscordMessageBox = dynamic(
   { ssr: false }
 );
 
+
 export default function HomeContent() {
   const [copied, setCopied] = useState(false);
 
@@ -27,7 +40,7 @@ const handleCopy = async () => {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText("npx armansingh");
     } else {
-      // 🔥 fallback for mobile / unsupported browsers
+      // fallback for mobile / unsupported browsers
       const textArea = document.createElement("textarea");
       textArea.value = "npx armansingh";
       textArea.style.position = "fixed";
@@ -51,7 +64,6 @@ const handleCopy = async () => {
   return (
     <>
       <div className="flex flex-col">
-        {/* ================= HERO ================= */}
         <section className="grow px-4 max-w-3xl mx-auto py-8">
           <h1 className="text-4xl font-bold mb-4">Arman Singh</h1>
 

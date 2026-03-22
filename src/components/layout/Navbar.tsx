@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Coffee } from 'lucide-react';
+import { ChevronDown, Home } from 'lucide-react';
 import { SwitchTheme } from './themeSwitch';
 
 const mainNavItems = [
@@ -26,7 +26,7 @@ export default function Navbar() {
   const isHomePage = pathname === '/';
 
   return (
-    <header className="flex items-center justify-between mb-12 px-4 relative">
+    <header className="flex items-center justify-between mb-12 px-4 relative mono">
 
       {/* Logo */}
       <Link
@@ -34,7 +34,7 @@ export default function Navbar() {
         href="/"
         aria-label="Home"
       >
-        <Coffee
+        <Home
           className={`w-4 h-4 transition-colors duration-300 ${
             isHomePage
               ? 'text-orange-500'

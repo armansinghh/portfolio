@@ -3,9 +3,12 @@ import type { Metadata } from 'next';
 import ProjectGrid from '@/components/projects/ProjectGrid';
 
 export const metadata: Metadata = {
-  title: 'Projects - Arman Singh',
+  title: 'Projects',
   description:
     'A collection of projects built with modern web technologies including Next.js, TypeScript, and more.',
+  alternates: {
+    canonical: '/projects',
+  },
 };
 
 export default function ProjectsPage() {
