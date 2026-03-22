@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from 'react';
 import './MeowlCat.css';
 
-interface OnekoCatProps {
+interface MeowlCatProps {
   enabled?: boolean;
   catImage?: string;
 }
 
-export default function OnekoCat({ enabled = true, catImage = '/meowl/meowl.gif' }: OnekoCatProps) {
+export default function MeowlCat({ enabled = true, catImage = '/meowl/meowl.gif' }: MeowlCatProps) {
   const catRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   const [isVisible, setIsVisible] = useState(enabled);
@@ -26,7 +26,6 @@ export default function OnekoCat({ enabled = true, catImage = '/meowl/meowl.gif'
     lastFrameTimestamp: 0,
   });
 
-  // Sprite sets (same as oneko.js)
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -281,7 +280,7 @@ export default function OnekoCat({ enabled = true, catImage = '/meowl/meowl.gif'
           catRef.current.style.backgroundPosition = parsed.bgPos || '0px 0px';
         }
       } catch (e) {
-        console.warn('Failed to parse saved oneko state:', e);
+        console.warn('Failed to parse saved meowl state:', e);
       }
     } else {
       // Default state
