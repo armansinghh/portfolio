@@ -21,7 +21,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 
 export const metadata = siteMetadata;
 
-/* ================= FONTS ================= */
+/*  FONTS  */
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
@@ -43,7 +43,7 @@ const geist = Geist({
   variable: "--font-sans",
 });
 
-/* ================= LAYOUT ================= */
+/* LAYOUT */
 export default function RootLayout({
   children,
 }: {

@@ -8,7 +8,7 @@ import {
   cloud,
   tools,
   design,
-} from "@/data/TechStack";
+} from "@/data/techstack";
 
 import TechStack from "@/components/stats/TechStack";
 import LatestCommitActivity from "@/components/activities/LatestCommitActivity";

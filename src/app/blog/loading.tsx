@@ -17,7 +17,7 @@ export default function Loading() {
         <div className="h-3 w-1/2 rounded-full bg-muted" />
       </div>
 
-      <hr className="border-white/[0.06]" />
+      <hr className="border-white/6" />
 
       {/* Content blocks */}
       <div className="space-y-4">
