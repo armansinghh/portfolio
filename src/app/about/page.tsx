@@ -51,9 +51,9 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <div className="flex flex-col">
+      <div className="flex flex-col px-4">
         {/* ================= INTRO ================= */}
-        <section className="px-4 max-w-3xl py-8 space-y-6">
+        <section className="max-w-3xl py-8 space-y-6">
           <h1 className="text-4xl font-bold">About Me</h1>
 
           <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">

@@ -3,7 +3,7 @@ import HomeContent from "@/components/HomeContent";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Arman Singh",
+    absolute: "Arman Singh - Frontend Developer",
   },
   description:
     "Frontend developer building modern web applications with a focus on performance, clean design, and usability.",

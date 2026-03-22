@@ -361,13 +361,17 @@
 
 /* ================= Scrollbar Styling ================= */
 html {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
 html::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
+
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 6px;
@@ -405,4 +409,44 @@ html::-webkit-scrollbar {
 
 .dark * {
   scrollbar-color: oklch(0.4 0 0 / 0.5) transparent;
+}
+
+/* ================= Notion Renderer ================= */
+.notion-content .notion-page {
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.notion-content .notion-text {
+  color: var(--muted-foreground) !important;
+  font-family: var(--font-dm-sans) !important;
+  line-height: 1.8 !important;
+}
+
+.notion-content .notion-h1,
+.notion-content .notion-h2,
+.notion-content .notion-h3 {
+  color: var(--foreground) !important;
+  font-family: var(--font-dm-sans) !important;
+}
+
+.notion-content .notion-code {
+  font-family: var(--font-jetbrains-mono) !important;
+  background: oklch(0.2 0 0) !important;
+  border: 0.5px solid oklch(1 0 0 / 8%) !important;
+  border-radius: 0.5rem !important;
+}
+
+.notion-content .notion-inline-code {
+  font-family: var(--font-jetbrains-mono) !important;
+  background: oklch(0.2 0 0) !important;
+  color: var(--foreground) !important;
+  border-radius: 0.25rem !important;
+  padding: 0.1rem 0.4rem !important;
+}
+
+.notion-content .notion-callout {
+  background: oklch(0.2 0 0) !important;
+  border: 0.5px solid oklch(1 0 0 / 8%) !important;
+  border-radius: 0.5rem !important;
 }
