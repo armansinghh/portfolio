@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import Script from "next/script";
 
 import {
   languages,
@@ -7,40 +8,41 @@ import {
   cloud,
   tools,
   design,
-} from '@/data/techstack';
+} from "@/data/TechStack";
 
-import TechStack from '@/components/stats/TechStack';
-import LatestCommitActivity from '@/components/activities/LatestCommitActivity';
+import TechStack from "@/components/stats/TechStack";
+import LatestCommitActivity from "@/components/activities/LatestCommitActivity";
 
 export const metadata: Metadata = {
-  title: 'About - Arman Singh',
+  title: "About - Arman Singh",
   description:
-    'Learn more about Arman Singh — full stack developer building modern web applications and exploring AI.',
+    "Learn more about Arman Singh — full stack developer building modern web applications and exploring AI.",
 };
 
 export default function AboutPage() {
   const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: [
       {
-        '@type': 'ListItem',
+        "@type": "ListItem",
         position: 1,
-        name: 'Home',
-        item: 'https://armansingh.me',
+        name: "Home",
+        item: "https://armansingh.me",
       },
       {
-        '@type': 'ListItem',
+        "@type": "ListItem",
         position: 2,
-        name: 'About',
-        item: 'https://armansingh.me/about',
+        name: "About",
+        item: "https://armansingh.me/about",
       },
     ],
   };
 
   return (
     <>
-      <script
+      <Script
+        id="breadcrumb-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
@@ -55,8 +57,8 @@ export default function AboutPage() {
               applications and exploring machine learning.
             </p>
             <p>
-              I work with modern technologies like Next.js, TypeScript, and backend
-              systems to create clean and efficient user experiences.
+              I work with modern technologies like Next.js, TypeScript, and
+              backend systems to create clean and efficient user experiences.
             </p>
             <p>
               I enjoy turning ideas into real products and care about both how
@@ -93,7 +95,6 @@ export default function AboutPage() {
             design, and overall user experience.
           </p>
         </section>
-
       </div>
     </>
   );
@@ -102,9 +103,7 @@ export default function AboutPage() {
 function TechGroup({ title, data }: any) {
   return (
     <div className="space-y-3">
-      <p className="text-sm text-muted-foreground mono">
-        {title}
-      </p>
+      <p className="text-sm text-muted-foreground mono">{title}</p>
       <TechStack techStack={data} />
     </div>
   );

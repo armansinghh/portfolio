@@ -14,7 +14,10 @@ const Typewriter = dynamic(() => import("typewriter-effect"), {
 
 // Lazy sections
 const Activities = lazy(() => import("@/components/activities/Activities"));
-const DiscordMessageBox = lazy(() => import("@/components/contact/MessageBox"));
+const DiscordMessageBox = dynamic(
+  () => import("@/components/contact/MessageBox"),
+  { ssr: false }
+);
 
 export default function HomeContent() {
   const [copied, setCopied] = useState(false);
