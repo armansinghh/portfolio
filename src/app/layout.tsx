@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import Script from "next/script";
 
 import { siteMetadata } from "@/data/metadata";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 export const metadata = siteMetadata;
 
@@ -82,6 +83,7 @@ export default function RootLayout({
             </GlobalModalProvider>
           </ThemeProvider>
         </Providers>
+        <CustomCursor />
       </body>
     </html>
   );

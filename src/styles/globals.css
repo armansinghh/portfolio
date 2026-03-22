@@ -150,13 +150,13 @@
     display: none !important;
   }
 
-  /* @media (pointer: fine) {
+  @media (pointer: fine) {
     *,
     *::before,
     *::after {
       cursor: none !important;
     }
-  } */
+  }
 
   .mono {
     font-family: var(--font-jetbrains-mono);
