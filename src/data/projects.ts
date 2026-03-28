@@ -138,4 +138,25 @@ export const projects: Project[] = [
     ],
     status: "completed",
   },
+  {
+  id: 7,
+  title: "Ravindra IAS",
+  description:
+    "High-conversion UPSC coaching website built with React, Vite, and Tailwind CSS v4. Built for a frontend design competition.",
+  longDescription:
+    "A fully responsive coaching platform for Ravindra IAS, built as a submission for a frontend design competition (PS 3 Build). Features a live batch countdown timer, scroll-reveal animations on scroll, active section navigation highlighting, topper testimonial carousel, tab-filtered course listings, validated enquiry form with success states, and a floating sticky CTA pill. Designed with a navy and gold palette using Playfair Display for editorial authority, with strong focus on UI/UX hierarchy, conversion optimization, and mobile responsiveness.",
+  image: "/projects/project-7.png",
+  tech: ["React", "Vite", "Tailwind CSS v4"],
+  github: "https://github.com/armansinghh/ravindra-ias",
+  live: "https://ravindraias.vercel.app",
+  features: [
+    "Live batch countdown timer",
+    "Scroll-reveal animations with IntersectionObserver",
+    "Active section highlight in sticky navbar",
+    "Topper testimonial carousel with dot navigation",
+    "Tab-filtered course listings (Prelims/Mains/Interview)",
+    "Validated form with success state feedback",
+  ],
+  status: "mvp",
+},
 ];

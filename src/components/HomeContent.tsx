@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 // Dynamic imports
 const Typewriter = dynamic(() => import("typewriter-effect"), {
   ssr: false,
-  loading: () => <span className="text-2xl">Full Stack Developer, India</span>,
+  loading: () => <span className="text-2xl">Web Developer</span>,
 });
 
 // Lazy sections
