@@ -43,6 +43,19 @@ const geist = Geist({
   variable: "--font-sans",
 });
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Arman Singh",
+  url: "https://armansingh.me",
+  description:
+    "Frontend developer building modern web applications with a focus on performance, clean design, and usability.",
+  author: {
+    "@type": "Person",
+    name: "Arman Singh",
+  },
+};
+
 /* LAYOUT */
 export default function RootLayout({
   children,
@@ -56,7 +69,7 @@ export default function RootLayout({
       className={cn("font-sans", geist.variable)}
     >
       <body>
-        {/*FIXED: theme script via Next Script */}
+        {/* Theme init script */}
         <Script id="theme-init" strategy="beforeInteractive">
           {`
             try {
@@ -70,6 +83,14 @@ export default function RootLayout({
         <Script id="hydration-class" strategy="afterInteractive">
           {`document.body.classList.add('hydrated');`}
         </Script>
+
+        {/* WebSite JSON-LD schema */}
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+
         <Providers>
           <ThemeProvider>
             <GlobalModalProvider>
