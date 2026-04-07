@@ -52,6 +52,7 @@ export const projects: Project[] = [
     image: "/projects/project-2.png",
     tech: ["React", "TypeScript", "Next.js", "UI Architecture"],
     github: "https://github.com/armansinghh/buzz-social",
+    live: "https://buzzsocial.vercel.app",
     features: [
       "Structured media posts",
       "Modal-based UX system",
