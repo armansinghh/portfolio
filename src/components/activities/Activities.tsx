@@ -156,7 +156,7 @@ export default function Activities() {
   }, [resolvedTheme, mounted]);
 
   return (
-    <section className="mt-24 space-y-6">
+    <section className="mt-24 px-2 space-y-6">
       <div className="flex items-center gap-3 mb-6">
         <h2 className="text-xl font-semibold tracking-tight text-foreground/90">
           Activity Feed
