@@ -7,11 +7,11 @@ import {
   ThemeProvider,
   GlobalModalProvider,
   Providers,
-} from "@/components/providers";
+} from "@/components/shared/providers";
 
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { Meowl } from "@/components/Meowl";
+import Navbar from "@/components/shared/layout/Navbar";
+import Footer from "@/components/shared/layout/Footer";
+import { Meowl } from "@/components/shared/Meowl";
 
 import { cn } from "@/lib/utils";
 import Script from "next/script";
