@@ -21,7 +21,7 @@ export default function ProjectCard({ project, onClick }: Props) {
       <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} — ${project.tech.slice(0,2).join(' and ')} project by Arman Singh`}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
