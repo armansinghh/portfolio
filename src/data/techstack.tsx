@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { FaJs, FaReact, FaGithub } from 'react-icons/fa';
+import { FaJs, FaReact, FaGithub } from "react-icons/fa";
 
 import {
   SiTypescript,
@@ -16,135 +16,156 @@ import {
   SiVercel,
   SiNpm,
   SiCanva,
-} from 'react-icons/si';
+  SiPytorch,
+  SiNumpy,
+  SiPandas,
+  SiOpencv,
+  SiScikitlearn,
+  SiJupyter,
+} from "react-icons/si";
 
 import {
-  TbBrandAdobe,
   TbBrandAdobeAfterEffect,
   TbBrandAdobePhotoshop,
-} from 'react-icons/tb';
+} from "react-icons/tb";
 
-
-// 🧠 Languages
 export const languages = [
   {
-    name: 'C++',
-    description: 'Programming Language',
+    name: "C++",
+    description: "Programming Language",
     icon: <SiCplusplus className="text-blue-500 text-4xl" />,
   },
   {
-    name: 'Python',
-    description: 'Programming Language',
+    name: "Python",
+    description: "Programming Language",
     icon: <SiPython className="text-yellow-400 text-4xl" />,
   },
   {
-    name: 'JavaScript',
-    description: 'Language of the web',
+    name: "JavaScript",
+    description: "Language of the web",
     icon: <FaJs className="text-yellow-400 text-4xl" />,
   },
   {
-    name: 'TypeScript',
-    description: 'Typed JavaScript',
+    name: "TypeScript",
+    description: "Typed JavaScript",
     icon: <SiTypescript className="text-blue-400 text-4xl" />,
   },
 ];
 
-
-// 🌐 Core Web
 export const coreweb = [
   {
-    name: 'HTML5',
-    description: 'Markup Language',
+    name: "HTML5",
+    description: "Markup Language",
     icon: <SiHtml5 className="text-orange-500 text-4xl" />,
   },
   {
-    name: 'CSS3',
-    description: 'Styling Language',
+    name: "CSS3",
+    description: "Styling Language",
     icon: <SiCss className="text-blue-500 text-4xl" />,
   },
 ];
 
-
-// 🎨 Frontend
 export const frontend = [
   {
-    name: 'React',
-    description: 'UI Library',
+    name: "React",
+    description: "UI Library",
     icon: <FaReact className="text-sky-400 text-4xl" />,
   },
   {
-    name: 'React Router',
-    description: 'Routing',
+    name: "React Router",
+    description: "Routing",
     icon: <SiReactrouter className="text-red-500 text-4xl" />,
   },
   {
-    name: 'Next.js',
-    description: 'Framework',
+    name: "Next.js",
+    description: "Framework",
     icon: <SiNextdotjs className="text-foreground text-4xl" />,
   },
   {
-    name: 'Tailwind CSS',
-    description: 'CSS Framework',
+    name: "Tailwind CSS",
+    description: "CSS Framework",
     icon: <SiTailwindcss className="text-cyan-500 text-4xl" />,
   },
 ];
 
-
-// ☁️ Cloud & Deployment
 export const cloud = [
   {
-    name: 'Firebase',
-    description: 'Backend',
+    name: "Firebase",
+    description: "Backend",
     icon: <SiFirebase className="text-yellow-500 text-4xl" />,
   },
   {
-    name: 'Google Cloud',
-    description: 'Cloud',
+    name: "Google Cloud",
+    description: "Cloud",
     icon: <SiGooglecloud className="text-blue-400 text-4xl" />,
   },
   {
-    name: 'Vercel',
-    description: 'Deployment',
+    name: "Vercel",
+    description: "Deployment",
     icon: <SiVercel className="text-foreground text-4xl" />,
   },
 ];
 
-
-// 🛠 Developer Tools
 export const tools = [
   {
-    name: 'GitHub',
-    description: 'Code Hosting',
+    name: "GitHub",
+    description: "Code Hosting",
     icon: <FaGithub className="text-muted-foreground text-4xl" />,
   },
   {
-    name: 'NPM',
-    description: 'Package Manager',
+    name: "NPM",
+    description: "Package Manager",
     icon: <SiNpm className="text-red-500 text-4xl" />,
   },
 ];
 
-
-// 🎭 Design
-export const design = [
+export const ml = [
   {
-    name: 'Adobe Suite',
-    description: 'Creative Tools',
-    icon: <TbBrandAdobe className="text-red-500 text-4xl" />,
+    name: "PyTorch",
+    description: "Deep Learning Framework",
+    icon: <SiPytorch className="text-orange-500 text-4xl" />,
   },
   {
-    name: 'After Effects',
-    description: 'Motion Graphics',
+    name: "OpenCV",
+    description: "Computer Vision",
+    icon: <SiOpencv className="text-green-500 text-4xl" />,
+  },
+  // {
+  //   name: "NumPy",
+  //   description: "Numerical Computing",
+  //   icon: <SiNumpy className="text-blue-400 text-4xl" />,
+  // },
+  // {
+  //   name: "Pandas",
+  //   description: "Data Analysis",
+  //   icon: <SiPandas className="text-purple-500 text-4xl" />,
+  // },
+  // {
+  //   name: "scikit-learn",
+  //   description: "ML Library",
+  //   icon: <SiScikitlearn className="text-orange-400 text-4xl" />,
+  // },
+  // {
+  //   name: "Jupyter",
+  //   description: "Notebook Environment",
+  //   icon: <SiJupyter className="text-orange-400 text-4xl" />,
+  // },
+];
+
+export const design = [
+  {
+    name: "After Effects",
+    description: "Motion Graphics",
     icon: <TbBrandAdobeAfterEffect className="text-purple-500 text-4xl" />,
   },
   {
-    name: 'Photoshop',
-    description: 'Image Editing',
+    name: "Photoshop",
+    description: "Image Editing",
     icon: <TbBrandAdobePhotoshop className="text-blue-500 text-4xl" />,
   },
   {
-    name: 'Canva',
-    description: 'Design Tool',
+    name: "Canva",
+    description: "Design Tool",
     icon: <SiCanva className="text-cyan-500 text-4xl" />,
   },
 ];

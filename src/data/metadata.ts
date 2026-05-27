@@ -4,7 +4,7 @@ export const siteMetadata: Metadata = {
   metadataBase: new URL("https://armansingh.me"),
 
   title: {
-    default: "Arman Singh — Frontend Developer",
+    default: "Arman Singh - AI & DS Student | ML + Web Development",
     template: "%s | Arman Singh",
   },
 
@@ -46,9 +46,9 @@ export const siteMetadata: Metadata = {
   },
 
   openGraph: {
-    title: "Arman Singh — Frontend Developer",
+    title: "Arman Singh — AI & DS Student | ML + Web Development",
     description:
-      "Frontend developer building modern web applications with a focus on performance, clean design, and usability.",
+      "AI & Data Science Student, Machine Learning Developer, B.Tech AI&DS @MITS Gwl",
     url: "https://armansingh.me",
     siteName: "Arman Singh Portfolio",
     locale: "en_US",
