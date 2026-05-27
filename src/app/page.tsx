@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import Script from "next/script";
 import HomeContent from "@/components/home/HomeContent";
 
-/* ================= METADATA ================= */
 export const metadata: Metadata = {
   title: {
     absolute: "Arman Singh - AI & DS Student | ML + Web Development",
   },
   description:
-    "AI & Data Science Student, Machine Learning Developer, B.Tech AI&DS @MITS Gwl",
+    "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
+    "Building ML models with PyTorch, working on CRNN architectures, and " +
+    "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
   alternates: {
     canonical: "/",
   },

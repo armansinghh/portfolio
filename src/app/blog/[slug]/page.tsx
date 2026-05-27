@@ -1,9 +1,9 @@
-import { getBlogPosts, getBlogPost, getPageRecordMap } from '@/lib/notion';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import NotionContent from '@/components/blog/NotionContent';
+import { getBlogPosts, getBlogPost, getPageRecordMap } from "@/lib/notion";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import NotionContent from "@/components/blog/NotionContent";
 
 export const revalidate = 60;
 
@@ -19,7 +19,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPost(slug);
+
   if (!post) return {};
+
   return {
     title: post.title,
     description: post.description,
@@ -29,9 +31,9 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
+      type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      authors: ["Arman Singh"],
     },
   };
 }
@@ -47,8 +49,60 @@ export default async function BlogPostPage({
 
   const recordMap = await getPageRecordMap(post.id);
 
+  /* --- dynamic breadcrumb schema --- */
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://armansingh.me",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://armansingh.me/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://armansingh.me/blog/${slug}`,
+      },
+    ],
+  };
+
+  /* --- dynamic article schema --- */
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: new Date(post.date).toISOString(),
+    url: `https://armansingh.me/blog/${slug}`,
+    author: {
+      "@type": "Person",
+      name: "Arman Singh",
+      url: "https://armansingh.me",
+    },
+    keywords: post.tags.join(", "),
+  };
+
   return (
     <div className="space-y-8 pb-16 px-4">
+      {/* SEO Scripts */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
       {/* Back */}
       <Link
         href="/blog"
@@ -64,10 +118,10 @@ export default async function BlogPostPage({
 
         <div className="flex flex-wrap items-center gap-3">
           <span className="font-mono text-[11px] text-muted-foreground">
-            {new Date(post.date).toLocaleDateString('en-US', {
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
+            {new Date(post.date).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
             })}
           </span>
 

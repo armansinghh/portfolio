@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import AboutContent from "@/components/about/AboutContent"; 
 
-/* ================= METADATA ================= */
 export const metadata: Metadata = {
   title: "About",
   description:
     "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
     "Building ML models with PyTorch, working on CRNN architectures, and " +
-    "shipping them as Next.js web applications. Open for AI/ML internships.",
+    "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
   alternates: {
     canonical: "/about",
   },
@@ -40,6 +39,7 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Arman Singh",
+    image: "https://armansingh.me/arman-singh.jpg",
     url: "https://armansingh.me",
     jobTitle: "B.Tech AI & Data Science Student",
     description:

@@ -9,13 +9,13 @@ export const siteMetadata: Metadata = {
   },
 
   description:
-    "Frontend developer building modern web applications and experimenting with AI and machine learning.",
+    "AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.",
 
   keywords: [
     "Arman Singh",
     "Arman Singh Portfolio",
-    "Frontend Developer",
-    "Frontend Developer India",
+    "AI & DS Student",
+    "Machine Learning Engineer",
     "Next.js Developer",
     "React Developer",
     "TypeScript Developer",
@@ -65,9 +65,9 @@ export const siteMetadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Arman Singh — Frontend Developer",
+    title: "Arman Singh — AI & DS Student",
     description:
-      "Frontend developer building modern web applications with a focus on performance, clean design, and usability.",
+      "AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.",
     images: ["/og.png"],
     creator: "@_armansingh",
   },

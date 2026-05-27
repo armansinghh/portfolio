@@ -1,13 +1,15 @@
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import ProjectsContent from '@/components/projects/ProjectsContent';
+import type { Metadata } from "next";
+import Script from "next/script";
+import ProjectsContent from "@/components/projects/ProjectsContent";
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: "Projects",
   description:
-    'A collection of projects built with modern web technologies including Next.js, TypeScript, and more.',
+    "A collection of end-to-end Machine Learning and web development projects. " +
+    "Taking PyTorch models and CRNN architectures from initial research to " +
+    "production as fully deployed Next.js applications.",
   alternates: {
-    canonical: '/projects',
+    canonical: "/projects",
   },
 };
 
@@ -31,6 +33,22 @@ export default function ProjectsPage() {
     ],
   };
 
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Arman Singh's Project Portfolio",
+    description:
+      "A collection of end-to-end Machine Learning and web development projects. " +
+      "Taking PyTorch models and CRNN architectures from initial research to " +
+      "production as fully deployed Next.js applications.",
+    url: "https://armansingh.me/projects",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Arman Singh Portfolio",
+      url: "https://armansingh.me",
+    },
+  };
+
   return (
     <>
       <Script
@@ -38,7 +56,13 @@ export default function ProjectsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      
+
+      <Script
+        id="collection-schema-projects"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+
       <ProjectsContent />
     </>
   );

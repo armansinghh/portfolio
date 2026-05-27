@@ -1,23 +1,24 @@
-import { getBlogPosts } from '@/lib/notion';
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import BlogListContent from '@/components/blog/BlogListContent';
+import { getBlogPosts } from "@/lib/notion";
+import type { Metadata } from "next";
+import Script from "next/script";
+import BlogListContent from "@/components/blog/BlogListContent";
 
+/* ================= METADATA ================= */
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Thoughts, devlogs and things I find interesting.',
+  title: "Blog",
+  description:
+    "Documenting my journey in AI and Data Science. Technical articles, devlogs, and code breakdowns covering PyTorch, Machine Learning, and Next.js web development.",
   alternates: {
-    canonical: '/blog',
+    canonical: "/blog",
   },
 };
 
 export const revalidate = 60;
 
 export default async function BlogPage() {
-  // 1. Server fetches the data
   const posts = await getBlogPosts();
 
-  // 2. Setup the SEO Schema
+  /* --- breadcrumb schema --- */
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -37,14 +38,34 @@ export default async function BlogPage() {
     ],
   };
 
+  /* --- blog index schema --- */
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Arman Singh's Blog",
+    description:
+      "Documenting my journey in AI and Data Science. Technical articles, devlogs, and code breakdowns covering PyTorch, Machine Learning, and Next.js web development.",
+    url: "https://armansingh.me/blog",
+    publisher: {
+      "@type": "Person",
+      name: "Arman Singh",
+    },
+  };
+
   return (
     <>
+      {/* SEO Scripts */}
       <Script
         id="breadcrumb-schema-blog"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      
+      <Script
+        id="blog-index-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+
       <BlogListContent posts={posts} />
     </>
   );
