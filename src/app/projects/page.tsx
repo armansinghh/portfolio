@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-
-import ProjectGrid from '@/components/projects/ProjectGrid';
+import Script from 'next/script';
+import ProjectsContent from '@/components/projects/ProjectsContent';
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -12,11 +12,34 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://armansingh.me",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: "https://armansingh.me/projects",
+      },
+    ],
+  };
+
   return (
-    <div className="flex flex-col">
-      <section className="grow px-4 max-w-3xl mx-auto py-8">
-        <ProjectGrid />
-      </section>
-    </div>
+    <>
+      <Script
+        id="breadcrumb-schema-projects"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      
+      <ProjectsContent />
+    </>
   );
 }
