@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Project } from "@/data/projects";
 import { useEffect } from "react";
 import { X, ArrowUpRight } from "lucide-react";
@@ -53,10 +54,12 @@ export default function ProjectModal({ project, onClose }: Props) {
         <div className="overflow-y-auto h-full">
           {/* HERO */}
           <div className="relative h-72 w-full">
-            <img
+            <Image
               src={project.image}
-              alt={project.title}
-              className="h-full w-full object-cover"
+              alt={`${project.title} — ${project.tech.slice(0, 2).join(" and ")} project by Arman Singh`}
+              fill
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
 
@@ -116,26 +119,26 @@ export default function ProjectModal({ project, onClose }: Props) {
               <div className="space-y-6 lg:border-l lg:border-white/6 lg:pl-8">
                 {/* Actions */}
                 <div className="flex flex-col gap-3">
-{project.live && (
-  <a
-    href={project.live}
-    target="_blank"
-    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-foreground text-background font-mono text-xs hover:opacity-90 transition"
-  >
-    <ArrowUpRight size={13} />
-    visit live site
-  </a>
-)}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-foreground text-background font-mono text-xs hover:opacity-90 transition"
+                    >
+                      <ArrowUpRight size={13} />
+                      visit live site
+                    </a>
+                  )}
 
-{project.github && (
-  <a
-    href={project.github}
-    target="_blank"
-    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-border font-mono text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition"
-  >
-    {'>'} source code
-  </a>
-)}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-border font-mono text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition"
+                    >
+                      {">"} source code
+                    </a>
+                  )}
                 </div>
 
                 {/* Tech */}

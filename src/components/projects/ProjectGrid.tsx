@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { projects, Project } from '@/data/projects';
-import ProjectCard from './ProjectCard';
-import ProjectModal from './ProjectModal';
-import { ArrowUpRight } from 'lucide-react';
-import { statusConfig } from '@/lib/ProjectStatus';
+import Image from "next/image";
+import { useState } from "react";
+import { projects, Project } from "@/data/projects";
+import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
+import { ArrowUpRight } from "lucide-react";
+import { statusConfig } from "@/lib/ProjectStatus";
 
 export default function ProjectGrid() {
   const [selected, setSelected] = useState<Project | null>(null);
@@ -24,69 +25,80 @@ export default function ProjectGrid() {
       </div>
 
       {/* Featured */}
-      {featured && (() => {
-        const status = featured.status ? statusConfig[featured.status] : null;
-        return (
-          <>
-            {/* Full featured layout — sm and above */}
-            <div
-              onClick={() => setSelected(featured)}
-              className="hidden sm:block group relative cursor-pointer overflow-hidden rounded-2xl border border-white/6 bg-card transition-all duration-300 hover:border-white/12 hover:shadow-md"
-            >
-              {/* Image */}
-              <div className="relative h-72 w-full overflow-hidden">
-                <img
-                  src={featured.image}
-                  alt={featured.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-                {/* Arrow */}
-                <div className="absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                  <ArrowUpRight className="h-4 w-4 text-white" strokeWidth={1.5} />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 space-y-3">
-                <div className="flex items-start justify-between gap-2">
-                  <h2 className="text-2xl font-semibold">{featured.title}</h2>
-
-                  {status && (
-                    <span className="flex items-center gap-1.5 mt-2 shrink-0">
-                      <span className={`h-1.5 w-1.5 rounded-full ${status.dotClass} ${status.pulse ? 'animate-pulse' : ''}`} />
-                      <span className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
-                        {status.label}
-                      </span>
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-muted-foreground">{featured.description}</p>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {featured.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs px-2 py-1 rounded-md border border-white/6 text-muted-foreground font-mono"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Regular card — mobile only */}
-            <div className="sm:hidden">
-              <ProjectCard
-                project={featured}
+      {featured &&
+        (() => {
+          const status = featured.status ? statusConfig[featured.status] : null;
+          return (
+            <>
+              {/* Full featured layout — sm and above */}
+              <div
                 onClick={() => setSelected(featured)}
-              />
-            </div>
-          </>
-        );
-      })()}
+                className="hidden sm:block group relative cursor-pointer overflow-hidden rounded-2xl border border-white/6 bg-card transition-all duration-300 hover:border-white/12 hover:shadow-md"
+              >
+                {/* Image */}
+                <div className="relative h-72 w-full overflow-hidden">
+                  <Image
+                    src={featured.image}
+                    alt={`${featured.title} — ${featured.tech.slice(0, 2).join(" and ")} project by Arman Singh`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 672px"
+                    priority
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+
+                  {/* Arrow */}
+                  <div className="absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                    <ArrowUpRight
+                      className="h-4 w-4 text-white"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 space-y-3">
+                  <div className="flex items-start justify-between gap-2">
+                    <h2 className="text-2xl font-semibold">{featured.title}</h2>
+
+                    {status && (
+                      <span className="flex items-center gap-1.5 mt-2 shrink-0">
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full ${status.dotClass} ${status.pulse ? "animate-pulse" : ""}`}
+                        />
+                        <span className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
+                          {status.label}
+                        </span>
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-muted-foreground">
+                    {featured.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {featured.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs px-2 py-1 rounded-md border border-white/6 text-muted-foreground font-mono"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Regular card — mobile only */}
+              <div className="sm:hidden">
+                <ProjectCard
+                  project={featured}
+                  onClick={() => setSelected(featured)}
+                />
+              </div>
+            </>
+          );
+        })()}
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -100,10 +112,7 @@ export default function ProjectGrid() {
       </div>
 
       {/* Modal */}
-      <ProjectModal
-        project={selected}
-        onClose={() => setSelected(null)}
-      />
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }

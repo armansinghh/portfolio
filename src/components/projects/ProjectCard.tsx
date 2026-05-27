@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { Project } from '@/data/projects';
-import { ArrowUpRight } from 'lucide-react';
-import { statusConfig } from '@/lib/ProjectStatus';
+import Image from "next/image";
+import { Project } from "@/data/projects";
+import { ArrowUpRight } from "lucide-react";
+import { statusConfig } from "@/lib/ProjectStatus";
 
 type Props = {
   project: Project;
@@ -19,10 +20,12 @@ export default function ProjectCard({ project, onClick }: Props) {
     >
       {/* Image */}
       <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
-        <img
+        <Image
           src={project.image}
-          alt={`${project.title} — ${project.tech.slice(0,2).join(' and ')} project by Arman Singh`}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          alt={`${project.title} — ${project.tech.slice(0, 2).join(" and ")} project by Arman Singh`}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
         {/* Arrow — fades + slides in on hover */}
@@ -33,14 +36,15 @@ export default function ProjectCard({ project, onClick }: Props) {
 
       {/* Content */}
       <div className="p-4 space-y-2">
-
         {/* Title row with status inline */}
         <div className="flex items-start justify-between gap-2">
           <h3 className="text-lg font-semibold">{project.title}</h3>
 
           {status && (
             <span className="flex items-center gap-1.5 mt-1.5 shrink-0">
-              <span className={`h-1.5 w-1.5 rounded-full ${status.dotClass} ${status.dotClass === 'bg-orange-400' ? 'animate-pulse' : ''}`} />
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${status.dotClass} ${status.dotClass === "bg-orange-400" ? "animate-pulse" : ""}`}
+              />
               <span className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
                 {status.label}
               </span>
