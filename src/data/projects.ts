@@ -2,6 +2,7 @@
 
 export type Project = {
   id: number;
+  slug: string;
   title: string;
 
   description: string; // short (card)
@@ -24,6 +25,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 1,
+    slug: 'handwritten-text-recognition',
     title: "Handwritten Text Recognition (CRNN)",
     description:
       "End-to-end handwritten text recognition system using CRNN architecture with PyTorch.",
@@ -44,7 +46,8 @@ export const projects: Project[] = [
 
   {
     id: 2,
-    title: "Buzz — Social Platform",
+    slug: 'buzz-social',
+    title: "Buzz - Social Platform",
     description:
       "A scalable social platform with structured posts and modern UI architecture.",
     longDescription:
@@ -64,7 +67,8 @@ export const projects: Project[] = [
 
   {
     id: 3,
-    title: "FreshStart AI — Academic Assistant",
+    slug: 'freshstart-ai',
+    title: "FreshStart AI - Academic Assistant",
     description:
       "AI-powered academic assistant built to support students with study workflows.",
     longDescription:
@@ -84,7 +88,8 @@ export const projects: Project[] = [
 
   {
     id: 4,
-    title: "Arman CLI — Terminal Portfolio",
+    slug: 'arman-cli',
+    title: "Arman CLI - Terminal Portfolio",
     description:
       "A CLI-based portfolio accessible via npx, bringing portfolio experience to the terminal.",
     longDescription:
@@ -103,6 +108,7 @@ export const projects: Project[] = [
 
   {
     id: 5,
+    slug: 'spotify-now-playing',
     title: "Spotify Now Playing Integration",
     description:
       "Displays real-time Spotify listening activity using Spotify API.",
@@ -122,6 +128,7 @@ export const projects: Project[] = [
 
   {
     id: 6,
+    slug: 'personal-portfolio',
     title: "Personal Portfolio",
     description:
       "Modern developer portfolio built with Next.js and TypeScript.",
@@ -141,6 +148,7 @@ export const projects: Project[] = [
   },
   {
   id: 7,
+  slug: 'ravindra-ias',
   title: "Ravindra IAS",
   description:
     "High-conversion UPSC coaching website built with React, Vite, and Tailwind CSS v4. Built for a frontend design competition.",
