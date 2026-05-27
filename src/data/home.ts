@@ -2,7 +2,6 @@ import { Github, Instagram, Linkedin } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 
 export const homeData = {
-  name: "Arman Singh",
   typewriter: [
     "AI & Data Science Student",
     "Machine Learning Developer",

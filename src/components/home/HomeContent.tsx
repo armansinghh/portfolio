@@ -31,7 +31,7 @@ export default function HomeContent() {
     <div className="flex flex-col">
       <section className="grow px-2 max-w-3xl mx-auto py-8">
         <h1 className="text-4xl font-bold mb-4">
-          {homeData.name}
+          Arman Singh
           <span className="sr-only">
             — AI & Data Science Student, Machine Learning Developer, B.Tech
             AI&DS
