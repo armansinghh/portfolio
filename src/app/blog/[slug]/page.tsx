@@ -22,6 +22,8 @@ export async function generateMetadata({
 
   if (!post) return {};
 
+  const ogUrl = `https://armansingh.me/api/og?title=${encodeURIComponent(post.title)}&type=blog&tags=${encodeURIComponent(post.tags.join(","))}`;
+
   return {
     title: post.title,
     description: post.description,
@@ -34,6 +36,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
       authors: ["Arman Singh"],
+      images: [{ url: ogUrl, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [ogUrl],
     },
   };
 }

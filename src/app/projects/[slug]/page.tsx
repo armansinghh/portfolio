@@ -1,13 +1,13 @@
-import { projects, Project } from '@/data/projects';
-import { notFound } from 'next/navigation';
-import { statusConfig } from '@/lib/ProjectStatus';
-import { ArrowUpRight, ArrowLeft } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import { projects, Project } from "@/data/projects";
+import { notFound } from "next/navigation";
+import { statusConfig } from "@/lib/ProjectStatus";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 
 export function generateStaticParams() {
-  return projects.map(p => ({ slug: p.slug }));
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -16,8 +16,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find(p => p.slug === slug);
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
+
+  const ogUrl = `https://armansingh.me/api/og?title=${encodeURIComponent(project.title)}&type=project&tags=${encodeURIComponent(project.tech.join(","))}`;
 
   return {
     title: project.title,
@@ -26,8 +28,14 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} — Arman Singh`,
       description: project.longDescription,
-      type: 'website',
-      images: [{ url: project.image, width: 1200, height: 630, alt: project.title }],
+      type: "website",
+      images: [{ url: ogUrl, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Arman Singh`,
+      description: project.longDescription,
+      images: [ogUrl],
     },
   };
 }
@@ -38,23 +46,23 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = projects.find(p => p.slug === slug);
+  const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
   const status = project.status ? statusConfig[project.status] : null;
 
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareSourceCode',
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
     name: project.title,
     description: project.longDescription,
     programmingLanguage: project.tech,
     codeRepository: project.github ?? undefined,
     url: project.live ?? undefined,
     author: {
-      '@type': 'Person',
-      name: 'Arman Singh',
-      url: 'https://armansingh.me',
+      "@type": "Person",
+      name: "Arman Singh",
+      url: "https://armansingh.me",
     },
   };
 
@@ -79,7 +87,7 @@ export default async function ProjectPage({
         <div className="relative h-72 w-full overflow-hidden rounded-2xl">
           <Image
             src={project.image}
-            alt={`${project.title} — ${project.tech.slice(0, 2).join(' and ')} project by Arman Singh`}
+            alt={`${project.title} — ${project.tech.slice(0, 2).join(" and ")} project by Arman Singh`}
             fill
             sizes="(max-width: 768px) 100vw, 672px"
             priority
@@ -94,7 +102,9 @@ export default async function ProjectPage({
             </h1>
             {status && (
               <span className="flex items-center gap-2">
-                <span className={`h-1.5 w-1.5 rounded-full ${status.dotClass} ${status.pulse ? 'animate-pulse' : ''}`} />
+                <span
+                  className={`h-1.5 w-1.5 rounded-full ${status.dotClass} ${status.pulse ? "animate-pulse" : ""}`}
+                />
                 <span className="font-mono text-[10px] text-white/50 tracking-widest uppercase">
                   {status.label}
                 </span>
@@ -154,7 +164,7 @@ export default async function ProjectPage({
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-border font-mono text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition"
                 >
-                  {'>'} source code
+                  {">"} source code
                 </a>
               )}
             </div>
@@ -164,7 +174,7 @@ export default async function ProjectPage({
                 Technologies
               </h2>
               <div className="flex flex-wrap gap-2">
-                {project.tech.map(tech => (
+                {project.tech.map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1.5 rounded-md border border-white/6 font-mono text-xs text-muted-foreground"
