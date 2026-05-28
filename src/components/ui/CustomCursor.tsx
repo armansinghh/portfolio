@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
-const AMOUNT = 20;
+const AMOUNT = 14;
 const SINE_DOTS = Math.floor(AMOUNT * 0.3);
 const WIDTH = 26;
 const IDLE_TIMEOUT = 150;
