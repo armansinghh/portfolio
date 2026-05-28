@@ -51,20 +51,55 @@ export default async function ProjectPage({
 
   const status = project.status ? statusConfig[project.status] : null;
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareSourceCode",
-    name: project.title,
-    description: project.longDescription,
-    programmingLanguage: project.tech,
-    codeRepository: project.github ?? undefined,
-    url: project.live ?? undefined,
-    author: {
-      "@type": "Person",
-      name: "Arman Singh",
-      url: "https://armansingh.me",
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: project.title,
+      description: project.longDescription,
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Web",
+      programmingLanguage: project.tech,
+      featureList: project.features ?? [],
+      url: project.live ?? undefined,
+      downloadUrl: project.live ?? undefined,
+      codeRepository: project.github ?? undefined,
+      author: {
+        "@type": "Person",
+        name: "Arman Singh",
+        url: "https://armansingh.me",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
     },
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://armansingh.me",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Projects",
+          item: "https://armansingh.me/projects",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: project.title,
+          item: `https://armansingh.me/projects/${project.slug}`,
+        },
+      ],
+    },
+  ];
 
   return (
     <>
