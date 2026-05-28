@@ -79,7 +79,7 @@ export default function Page() {
   return (
     <>
       <Script
-        id="person-schema"
+        id="person-schema-home"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
