@@ -1,14 +1,82 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import './MeowlCat.css';
+import { useEffect, useRef, useState } from "react";
+import "./MeowlCat.css";
+
+const SPRITE_SETS = {
+  idle: [[-3, -3]],
+  alert: [[-7, -3]],
+  scratchSelf: [
+    [-5, 0],
+    [-6, 0],
+    [-7, 0],
+  ],
+  scratchWallN: [
+    [0, 0],
+    [0, -1],
+  ],
+  scratchWallS: [
+    [-7, -1],
+    [-6, -2],
+  ],
+  scratchWallE: [
+    [-2, -2],
+    [-2, -3],
+  ],
+  scratchWallW: [
+    [-4, 0],
+    [-4, -1],
+  ],
+  tired: [[-3, -2]],
+  sleeping: [
+    [-2, 0],
+    [-2, -1],
+  ],
+  N: [
+    [-1, -2],
+    [-1, -3],
+  ],
+  NE: [
+    [0, -2],
+    [0, -3],
+  ],
+  E: [
+    [-3, 0],
+    [-3, -1],
+  ],
+  SE: [
+    [-5, -1],
+    [-5, -2],
+  ],
+  S: [
+    [-6, -3],
+    [-7, -2],
+  ],
+  SW: [
+    [-5, -3],
+    [-6, -1],
+  ],
+  W: [
+    [-4, -2],
+    [-4, -3],
+  ],
+  NW: [
+    [-1, 0],
+    [-1, -1],
+  ],
+};
+
+const MEOWL_SPEED = 10;
 
 interface MeowlCatProps {
   enabled?: boolean;
   catImage?: string;
 }
 
-export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif' }: MeowlCatProps) {
+export default function MeowlCat({
+  enabled = true,
+  catImage = "/Meowl/Meowl.gif",
+}: MeowlCatProps) {
   const catRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   const [isVisible, setIsVisible] = useState(enabled);
@@ -26,71 +94,6 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
     lastFrameTimestamp: 0,
   });
 
-  const spriteSets = {
-    idle: [[-3, -3]],
-    alert: [[-7, -3]],
-    scratchSelf: [
-      [-5, 0],
-      [-6, 0],
-      [-7, 0],
-    ],
-    scratchWallN: [
-      [0, 0],
-      [0, -1],
-    ],
-    scratchWallS: [
-      [-7, -1],
-      [-6, -2],
-    ],
-    scratchWallE: [
-      [-2, -2],
-      [-2, -3],
-    ],
-    scratchWallW: [
-      [-4, 0],
-      [-4, -1],
-    ],
-    tired: [[-3, -2]],
-    sleeping: [
-      [-2, 0],
-      [-2, -1],
-    ],
-    N: [
-      [-1, -2],
-      [-1, -3],
-    ],
-    NE: [
-      [0, -2],
-      [0, -3],
-    ],
-    E: [
-      [-3, 0],
-      [-3, -1],
-    ],
-    SE: [
-      [-5, -1],
-      [-5, -2],
-    ],
-    S: [
-      [-6, -3],
-      [-7, -2],
-    ],
-    SW: [
-      [-5, -3],
-      [-6, -1],
-    ],
-    W: [
-      [-4, -2],
-      [-4, -3],
-    ],
-    NW: [
-      [-1, 0],
-      [-1, -1],
-    ],
-  };
-
-  const nekoSpeed = 10;
-
   // Mouse tracking
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -99,11 +102,11 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
     };
 
     if (enabled) {
-      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener("mousemove", handleMouseMove);
     }
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, [enabled]);
 
@@ -111,8 +114,8 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
   const setSprite = (name: string, frame: number) => {
     if (!catRef.current) return;
     const sprite =
-      spriteSets[name as keyof typeof spriteSets][
-        frame % spriteSets[name as keyof typeof spriteSets].length
+      SPRITE_SETS[name as keyof typeof SPRITE_SETS][
+        frame % SPRITE_SETS[name as keyof typeof SPRITE_SETS].length
       ];
     catRef.current.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
   };
@@ -133,46 +136,54 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
       Math.floor(Math.random() * 200) === 0 &&
       catStateRef.current.idleAnimation === null
     ) {
-      const availableIdleAnimations = ['sleeping', 'scratchSelf'];
+      const availableIdleAnimations = ["sleeping", "scratchSelf"];
       if (catStateRef.current.nekoPosX < 32) {
-        availableIdleAnimations.push('scratchWallW');
+        availableIdleAnimations.push("scratchWallW");
       }
       if (catStateRef.current.nekoPosY < 32) {
-        availableIdleAnimations.push('scratchWallN');
+        availableIdleAnimations.push("scratchWallN");
       }
       if (catStateRef.current.nekoPosX > window.innerWidth - 32) {
-        availableIdleAnimations.push('scratchWallE');
+        availableIdleAnimations.push("scratchWallE");
       }
       if (catStateRef.current.nekoPosY > window.innerHeight - 32) {
-        availableIdleAnimations.push('scratchWallS');
+        availableIdleAnimations.push("scratchWallS");
       }
       catStateRef.current.idleAnimation =
-        availableIdleAnimations[Math.floor(Math.random() * availableIdleAnimations.length)];
+        availableIdleAnimations[
+          Math.floor(Math.random() * availableIdleAnimations.length)
+        ];
     }
 
     switch (catStateRef.current.idleAnimation) {
-      case 'sleeping':
+      case "sleeping":
         if (catStateRef.current.idleAnimationFrame < 8) {
-          setSprite('tired', 0);
+          setSprite("tired", 0);
           break;
         }
-        setSprite('sleeping', Math.floor(catStateRef.current.idleAnimationFrame / 4));
+        setSprite(
+          "sleeping",
+          Math.floor(catStateRef.current.idleAnimationFrame / 4),
+        );
         if (catStateRef.current.idleAnimationFrame > 192) {
           resetIdleAnimation();
         }
         break;
-      case 'scratchWallN':
-      case 'scratchWallS':
-      case 'scratchWallE':
-      case 'scratchWallW':
-      case 'scratchSelf':
-        setSprite(catStateRef.current.idleAnimation, catStateRef.current.idleAnimationFrame);
+      case "scratchWallN":
+      case "scratchWallS":
+      case "scratchWallE":
+      case "scratchWallW":
+      case "scratchSelf":
+        setSprite(
+          catStateRef.current.idleAnimation,
+          catStateRef.current.idleAnimationFrame,
+        );
         if (catStateRef.current.idleAnimationFrame > 9) {
           resetIdleAnimation();
         }
         break;
       default:
-        setSprite('idle', 0);
+        setSprite("idle", 0);
         return;
     }
     catStateRef.current.idleAnimationFrame += 1;
@@ -185,7 +196,7 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
     const diffY = catStateRef.current.nekoPosY - catStateRef.current.mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    if (distance < nekoSpeed || distance < 48) {
+    if (distance < MEOWL_SPEED || distance < 48) {
       idle();
       return;
     }
@@ -194,30 +205,30 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
     catStateRef.current.idleAnimationFrame = 0;
 
     if (catStateRef.current.idleTime > 1) {
-      setSprite('alert', 0);
+      setSprite("alert", 0);
       // count down after being alerted before moving
       catStateRef.current.idleTime = Math.min(catStateRef.current.idleTime, 7);
       catStateRef.current.idleTime -= 1;
       return;
     }
 
-    let direction = '';
-    direction += diffY / distance > 0.5 ? 'N' : '';
-    direction += diffY / distance < -0.5 ? 'S' : '';
-    direction += diffX / distance > 0.5 ? 'W' : '';
-    direction += diffX / distance < -0.5 ? 'E' : '';
+    let direction = "";
+    direction += diffY / distance > 0.5 ? "N" : "";
+    direction += diffY / distance < -0.5 ? "S" : "";
+    direction += diffX / distance > 0.5 ? "W" : "";
+    direction += diffX / distance < -0.5 ? "E" : "";
     setSprite(direction, catStateRef.current.frameCount);
 
-    catStateRef.current.nekoPosX -= (diffX / distance) * nekoSpeed;
-    catStateRef.current.nekoPosY -= (diffY / distance) * nekoSpeed;
+    catStateRef.current.nekoPosX -= (diffX / distance) * MEOWL_SPEED;
+    catStateRef.current.nekoPosY -= (diffY / distance) * MEOWL_SPEED;
 
     catStateRef.current.nekoPosX = Math.min(
       Math.max(16, catStateRef.current.nekoPosX),
-      window.innerWidth - 16
+      window.innerWidth - 16,
     );
     catStateRef.current.nekoPosY = Math.min(
       Math.max(16, catStateRef.current.nekoPosY),
-      window.innerHeight - 16
+      window.innerHeight - 16,
     );
 
     if (catRef.current) {
@@ -261,8 +272,7 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
 
   // Reset position when component mounts and load saved state
   useEffect(() => {
-    // Load saved state from localStorage
-    const savedNeko = localStorage.getItem('meowl-cat');
+    const savedNeko = localStorage.getItem("meowl-cat");
     if (savedNeko) {
       try {
         const parsed = JSON.parse(savedNeko);
@@ -274,16 +284,13 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
         catStateRef.current.idleTime = parsed.idleTime || 0;
         catStateRef.current.idleAnimation = parsed.idleAnimation || null;
         catStateRef.current.idleAnimationFrame = parsed.idleAnimationFrame || 0;
-
-        // Apply saved background position
         if (catRef.current) {
-          catRef.current.style.backgroundPosition = parsed.bgPos || '0px 0px';
+          catRef.current.style.backgroundPosition = parsed.bgPos || "0px 0px";
         }
       } catch (e) {
-        console.warn('Failed to parse saved meowl state:', e);
+        console.warn("Failed to parse saved meowl state:", e);
       }
     } else {
-      // Default state
       catStateRef.current.nekoPosX = 32;
       catStateRef.current.nekoPosY = 32;
       catStateRef.current.frameCount = 0;
@@ -292,10 +299,7 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
       catStateRef.current.idleAnimationFrame = 0;
       catStateRef.current.lastFrameTimestamp = 0;
     }
-  }, []);
 
-  // Save state to localStorage before unload
-  useEffect(() => {
     const handleBeforeUnload = () => {
       if (enabled && catRef.current) {
         const stateToSave = {
@@ -307,14 +311,14 @@ export default function MeowlCat({ enabled = true, catImage = '/Meowl/Meowl.gif'
           idleTime: catStateRef.current.idleTime,
           idleAnimation: catStateRef.current.idleAnimation,
           idleAnimationFrame: catStateRef.current.idleAnimationFrame,
-          bgPos: catRef.current.style.backgroundPosition || '0px 0px',
+          bgPos: catRef.current.style.backgroundPosition || "0px 0px",
         };
-        localStorage.setItem('meowl-cat', JSON.stringify(stateToSave));
+        localStorage.setItem("meowl-cat", JSON.stringify(stateToSave));
       }
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [enabled]);
 
   if (!isVisible) return null;
