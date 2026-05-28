@@ -49,10 +49,11 @@ const websiteSchema = {
   name: "Arman Singh",
   url: "https://armansingh.me",
   description:
-    "Frontend developer building modern web applications with a focus on performance, clean design, and usability.",
+    "AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.",
   author: {
     "@type": "Person",
     name: "Arman Singh",
+    url: "https://armansingh.me",
   },
 };
 
@@ -68,6 +69,17 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("font-sans", geist.variable)}
     >
+      <head>
+        <link rel="preconnect" href="https://api.lanyard.rest" />
+        <link rel="preconnect" href="https://cdn.discordapp.com" />
+        <link rel="preconnect" href="https://my-spotify-activity.vercel.app" />
+        <link rel="dns-prefetch" href="https://api.lanyard.rest" />
+        <link rel="dns-prefetch" href="https://cdn.discordapp.com" />
+        <link
+          rel="dns-prefetch"
+          href="https://my-spotify-activity.vercel.app"
+        />
+      </head>
       <body>
         {/* Theme init script */}
         <Script id="theme-init" strategy="beforeInteractive">
