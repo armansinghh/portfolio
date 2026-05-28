@@ -9,7 +9,9 @@ export const siteMetadata: Metadata = {
   },
 
   description:
-    "AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.",
+    "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
+    "Building ML models with PyTorch, working on CRNN architectures, and " +
+    "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
 
   keywords: [
     "Arman Singh",
@@ -46,9 +48,11 @@ export const siteMetadata: Metadata = {
   },
 
   openGraph: {
-    title: "Arman Singh — AI & DS Student | ML + Web Development",
+    title: "Arman Singh - AI & DS Student | ML + Web Development",
     description:
-      "AI & Data Science Student, Machine Learning Developer, B.Tech AI&DS @MITS Gwl",
+      "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
+      "Building ML models with PyTorch, working on CRNN architectures, and " +
+      "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
     url: "https://armansingh.me",
     siteName: "Arman Singh Portfolio",
     locale: "en_US",
@@ -65,9 +69,11 @@ export const siteMetadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Arman Singh — AI & DS Student",
+    title: "Arman Singh - AI & DS Student",
     description:
-      "AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.",
+      "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
+      "Building ML models with PyTorch, working on CRNN architectures, and " +
+      "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
     images: ["/og.png"],
     creator: "@_armansingh",
   },

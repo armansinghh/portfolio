@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import AboutContent from "@/components/about/AboutContent"; 
+import AboutContent from "@/components/about/AboutContent";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
-    "Building ML models with PyTorch, working on CRNN architectures, and " +
-    "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
+    "B.Tech AI & Data Science student at MITS Gwalior. " +
+    "Building handwritten text recognition systems with CRNN and PyTorch, " +
+    "deploying them as Next.js web apps. Open for AI/ML & Web Development internships.",
   alternates: {
     canonical: "/about",
   },

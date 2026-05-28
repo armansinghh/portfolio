@@ -19,6 +19,7 @@ import {
   LuTerminal,
   LuPalette,
   LuGithub,
+  LuStar,
 } from "react-icons/lu";
 
 import LatestCommitActivity from "@/components/activities/LatestCommitActivity";
@@ -180,8 +181,8 @@ export default function AboutContent() {
       </section>
 
       {/* ================= INTERESTS ================= */}
-      <section className="max-w-3xl space-y-6 mt-16 mb-16">
-        <SectionHeading title="Beyond the Screen" />
+      <section className="max-w-3xl space-y-6 mt-16">
+        <SectionHeading title="Beyond the Screen" icon={<LuStar />} />
 
         <p className="text-lg leading-relaxed text-muted-foreground mb-6">
           When I'm not training models or debugging React components, I like

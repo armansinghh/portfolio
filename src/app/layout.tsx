@@ -49,7 +49,9 @@ const websiteSchema = {
   name: "Arman Singh",
   url: "https://armansingh.me",
   description:
-    "AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.",
+    "Arman Singh is a B.Tech AI & Data Science student from Gwalior, India. " +
+    "Building ML models with PyTorch, working on CRNN architectures, and " +
+    "shipping them as Next.js web applications. Open for AI/ML & Web Development internships.",
   author: {
     "@type": "Person",
     name: "Arman Singh",

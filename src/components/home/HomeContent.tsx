@@ -3,7 +3,7 @@
 import { lazy, Suspense } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { homeData } from "@/data/home";
@@ -59,13 +59,13 @@ export default function HomeContent() {
         <div className="mb-3">
           <Link
             href="/about"
-            className="group inline-flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="group inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             <span className="relative pb-0.5">
               read more about me
               <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300 ease-out group-hover:w-full"></span>
             </span>
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <ArrowRight className="h-3 w-3 transition-transform duration-300 ease-out group-hover:translate-x-1" />
           </Link>
         </div>
 
