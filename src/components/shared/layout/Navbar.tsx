@@ -26,7 +26,7 @@ export default function Navbar() {
   const isHomePage = pathname === '/';
 
   return (
-    <header className="flex items-center justify-between mb-12 px-4 relative mono">
+    <header aria-label="Site header" className="flex items-center justify-between mb-12 px-4 relative mono">
 
       {/* Logo */}
       <Link
@@ -44,7 +44,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop navigation */}
-      <div className="hidden md:flex items-center space-x-6">
+      <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-6">
         {mainNavItems.map(({ name, href }) => {
           const isActive = pathname === href;
 
@@ -64,7 +64,7 @@ export default function Navbar() {
         })}
 
          <SwitchTheme />
-      </div>
+      </nav>
 
       {/* Mobile menu button */}
       <div className="md:hidden flex items-center space-x-4">
@@ -85,7 +85,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden absolute top-full right-0 mt-2 bg-background border border-border rounded-md p-4 shadow-lg z-20">
+        <nav aria-label="Mobile navigation" className="md:hidden absolute top-full right-0 mt-2 bg-background border border-border rounded-md p-4 shadow-lg z-20">
           {mainNavItems.map(({ name, href }) => {
             const isActive = pathname === href;
 
@@ -104,7 +104,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-        </div>
+        </nav>
       )}
     </header>
   );
