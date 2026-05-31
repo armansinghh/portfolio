@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-      <footer className="text-sm text-muted-foreground flex justify-between items-center w-full mono mt-12 border-t py-6">
+      <footer aria-label="Site footer" className="text-sm text-muted-foreground flex justify-between items-center w-full mono mt-12 border-t py-6">
         <div>© 2026 Arman Singh</div>
         <Link
           href="https://github.com/armansinghh"
