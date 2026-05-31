@@ -79,8 +79,8 @@ export default function HomeContent() {
         </div>
 
         <div className="flex flex-wrap items-center gap-4 pt-2">
-          {/* 🆕 Clean, extracted component! */}
           <CopyCommandButton />
+          
 
           {/* Social Links */}
           <div className="flex items-center gap-2">
