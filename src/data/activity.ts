@@ -1,6 +1,6 @@
 export const activity = {
   location: "Gwalior, India",
-  reading: "...",
+  reading: "The Alchemist",
   watching: "Arcane",
   status: "Building buzz-social",
 };
