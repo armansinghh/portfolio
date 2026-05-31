@@ -64,6 +64,7 @@ export default async function ProjectPage({
       url: project.live ?? undefined,
       downloadUrl: project.live ?? undefined,
       codeRepository: project.github ?? undefined,
+      screenshot: `https://armansingh.me${project.image}`,
       author: {
         "@type": "Person",
         name: "Arman Singh",
