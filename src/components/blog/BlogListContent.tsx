@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import type { BlogPost } from '@/lib/notion';
+import Link from "next/link";
+import type { BlogPost } from "@/lib/notion";
 
 interface BlogListContentProps {
   posts: BlogPost[];
@@ -12,14 +12,15 @@ export default function BlogListContent({ posts }: BlogListContentProps) {
       <div className="space-y-2 py-8">
         <h1 className="text-3xl sm:text-4xl font-bold">Blog</h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-lg">
-          Thoughts, devlogs and things I find interesting.
+          Technical articles, guides, and devlogs on ML, web development, and
+          things I find interesting (with a bit of brain rot)
         </p>
       </div>
 
       {/* Posts */}
       {posts.length === 0 ? (
         <p className="font-mono text-sm text-muted-foreground">
-          {'>'} no posts yet. check back soon.
+          {">"} no posts yet. check back soon.
         </p>
       ) : (
         <div className="divide-y divide-border">
@@ -51,10 +52,10 @@ export default function BlogListContent({ posts }: BlogListContentProps) {
               </div>
 
               <span className="font-mono text-[11px] text-muted-foreground shrink-0 sm:mt-0.5">
-                {new Date(post.date).toLocaleDateString('en-US', {
-                  month: 'short',
-                  day: 'numeric',
-                  year: 'numeric',
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
                 })}
               </span>
             </Link>
