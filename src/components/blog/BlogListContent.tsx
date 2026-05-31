@@ -34,7 +34,7 @@ export default function BlogListContent({ posts }: BlogListContentProps) {
                 <p className="text-sm font-medium group-hover:text-foreground text-foreground/80 transition-colors">
                   {post.title}
                 </p>
-                <p className="text-xs text-muted-foreground line-clamp-1 max-w-sm">
+                <p className="text-xs text-muted-foreground line-clamp-2 max-w-sm">
                   {post.description}
                 </p>
                 {post.tags.length > 0 && (
