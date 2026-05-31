@@ -92,6 +92,7 @@ export default async function BlogPostPage({
     description: post.description,
     datePublished: new Date(post.date).toISOString(),
     url: `https://armansingh.me/blog/${slug}`,
+    image: `https://armansingh.me/api/og?title=${encodeURIComponent(post.title)}&type=blog&tags=${encodeURIComponent(post.tags.join(","))}`,
     author: {
       "@type": "Person",
       name: "Arman Singh",
