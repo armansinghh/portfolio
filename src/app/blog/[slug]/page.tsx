@@ -97,6 +97,7 @@ export default async function BlogPostPage({
       "@type": "Person",
       name: "Arman Singh",
       url: "https://armansingh.me",
+      image: "https://armansingh.me/arman-singh.jpg",
     },
     keywords: post.tags.join(", "),
   };
