@@ -73,6 +73,38 @@ export default function AboutPage() {
     ],
   };
 
+  /* --- faq schema --- */
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What technologies does Arman Singh specialize in?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "PyTorch, CRNN architecture, Next.js, React, TypeScript, and Tailwind CSS.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is Arman Singh open to internships?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, currently seeking AI/ML and web development internships. Based in Gwalior, India.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is Arman Singh currently building?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A handwritten text recognition system using CRNN architecture trained on the IAM dataset with PyTorch, and a social platform called Buzz built with React",
+        },
+      },
+    ],
+  };
+
   return (
     <>
       {/* SEO Scripts */}
@@ -85,6 +117,11 @@ export default function AboutPage() {
         id="person-schema-about"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <AboutContent />
