@@ -1,5 +1,5 @@
 import { JetBrains_Mono, DM_Sans } from "next/font/google";
-import { Geist } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 
 import "@/styles/globals.css";
 
@@ -38,11 +38,6 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ["monospace"],
 });
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -69,7 +64,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("font-sans", geist.variable)}
+      className={cn("font-sans", GeistSans.variable)}
     >
       <head>
         <link rel="preconnect" href="https://api.lanyard.rest" />
