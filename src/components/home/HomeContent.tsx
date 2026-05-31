@@ -30,13 +30,7 @@ export default function HomeContent() {
   return (
     <div className="flex flex-col">
       <section className="grow px-2 max-w-3xl mx-auto py-8">
-        <h1 className="text-4xl font-bold mb-4">
-          Arman Singh
-          <span className="sr-only">
-            — AI & Data Science Student, Machine Learning Developer, B.Tech
-            AI&DS
-          </span>
-        </h1>
+        <h1 className="text-4xl font-bold mb-4">Arman Singh</h1>
 
         <div className="text-xl sm:text-2xl text-muted-foreground font-medium h-8 flex items-center mb-4">
           <span className="mr-2 text-foreground/50">{">"}</span>
@@ -80,7 +74,6 @@ export default function HomeContent() {
 
         <div className="flex flex-wrap items-center gap-4 pt-2">
           <CopyCommandButton />
-          
 
           {/* Social Links */}
           <div className="flex items-center gap-2">
