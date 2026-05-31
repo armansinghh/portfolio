@@ -23,7 +23,7 @@ const Typewriter = dynamic(() => import("typewriter-effect"), {
 const Activities = lazy(() => import("@/components/activities/Activities"));
 const DiscordMessageBox = dynamic(
   () => import("@/components/shared/contact/MessageBox"),
-  { ssr: false }
+  { ssr: false },
 );
 
 export default function HomeContent() {
@@ -51,9 +51,18 @@ export default function HomeContent() {
             }}
           />
         </div>
-
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-2 leading-relaxed">
-          {homeData.description}
+          I'm an AI & Data Science engineering student from Gwalior, India.
+          Building machine learning models and deploying them as production web
+          applications. Currently working on{" "}
+          <Link
+            href="/projects/handwritten-text-recognition"
+            className="text-accent-foreground hover:text-gray-900 dark:hover:text-white bg-[linear-gradient(currentColor,currentColor)] bg-size-[0%_1px] hover:bg-size-[100%_1px] bg-no-repeat bg-bottom-left pb-0.5 transition-all duration-500 ease-out"
+          >
+            handwritten text recognition using CRNN architectures with PyTorch
+          </Link>
+          , and turning those models into real, usable interfaces with Next.js
+          and React.
         </p>
 
         <div className="mb-3">

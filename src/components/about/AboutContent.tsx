@@ -27,6 +27,7 @@ import { BentoCard } from "@/components/ui/BentoCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TechGroup } from "@/components/about/TechGroup";
 import { aboutData } from "@/data/about";
+import Link from "next/link";
 
 export default function AboutContent() {
   return (
@@ -41,9 +42,24 @@ export default function AboutContent() {
             <h2 className="text-2xl font-semibold tracking-tight text-foreground">
               What I'm Studying & Building
             </h2>
-            {aboutData.introduction.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+
+            {/* First paragraph — with internal link */}
+            <p>
+              I'm a first-year B.Tech student in Artificial Intelligence & Data
+              Science, obsessed with building machine learning systems that
+              actually do something useful, right now that's sequence modeling
+              with{" "}
+              <Link
+                href="/projects/handwritten-text-recognition"
+                className="text-accent-foreground hover:text-gray-900 dark:hover:text-white bg-[linear-gradient(currentColor,currentColor)] bg-size-[0%_1px] hover:bg-size-[100%_1px] bg-no-repeat bg-bottom-left pb-0.5 transition-all duration-500 ease-out"
+              >
+                CRNN architectures for handwritten text recognition
+              </Link>
+              , trained on the IAM dataset using PyTorch.
+            </p>
+
+            {/* Second paragraph — unchanged */}
+            <p>{aboutData.introduction[1]}</p>
           </div>
 
           {/* Section 2: Technical Focus */}
@@ -148,11 +164,7 @@ export default function AboutContent() {
 
         <TechGroup title="Languages" icon={<LuCode />} data={languages} />
 
-        <TechGroup
-          title="Machine Learning & AI"
-          icon={<LuBrain />}
-          data={ml}
-        />
+        <TechGroup title="Machine Learning & AI" icon={<LuBrain />} data={ml} />
 
         <TechGroup title="Core Web" icon={<LuGlobe />} data={coreweb} />
 
@@ -185,9 +197,8 @@ export default function AboutContent() {
         <SectionHeading title="Beyond the Screen" icon={<LuStar />} />
 
         <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-          When I'm not training models or debugging React components, I like
-          to step away from the keyboard and reset. Here is what keeps me
-          busy:
+          When I'm not training models or debugging React components, I like to
+          step away from the keyboard and reset. Here is what keeps me busy:
         </p>
 
         <div className="grid grid-cols-2 gap-3">
