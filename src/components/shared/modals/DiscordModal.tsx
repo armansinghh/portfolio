@@ -1,4 +1,4 @@
-﻿'use client';
+﻿"use client";
 
 import Image from "next/image";
 import { ExternalLink, Gamepad2, Trophy, Zap, Code2, X } from "lucide-react";
@@ -53,9 +53,14 @@ export function DiscordModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={onClose}>
-      <div className="w-full max-w-md rounded-2xl border border-border bg-background overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
-
+    <div
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl border border-border bg-background overflow-hidden shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Banner */}
         <div className="h-24 bg-muted relative">
           <button
@@ -68,7 +73,6 @@ export function DiscordModal({
 
         {/* Content */}
         <div className="px-6 pb-6 -mt-10">
-
           {/* Avatar */}
           <div className="flex items-end gap-4 mb-4">
             <div className="relative">
@@ -77,7 +81,6 @@ export function DiscordModal({
                 alt={user.username ?? "avatar"}
                 width={72}
                 height={72}
-                unoptimized
                 className="rounded-full border-4 border-background object-cover"
               />
               <span
