@@ -67,6 +67,7 @@ export default function RootLayout({
       className={cn("font-sans", GeistSans.variable)}
     >
       <head>
+        <meta name="author" content="Arman Singh" />
         <link rel="preconnect" href="https://api.lanyard.rest" />
         <link rel="preconnect" href="https://cdn.discordapp.com" />
         <link rel="preconnect" href="https://my-spotify-activity.vercel.app" />
