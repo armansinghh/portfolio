@@ -70,12 +70,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://api.lanyard.rest" />
         <link rel="preconnect" href="https://cdn.discordapp.com" />
         <link rel="preconnect" href="https://my-spotify-activity.vercel.app" />
+        <link rel="preconnect" href="https://raw.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://api.lanyard.rest" />
         <link rel="dns-prefetch" href="https://cdn.discordapp.com" />
         <link
           rel="dns-prefetch"
           href="https://my-spotify-activity.vercel.app"
         />
+        <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
       </head>
       <body>
         {/* Theme init script */}
