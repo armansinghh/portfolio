@@ -108,7 +108,7 @@ export default function RootLayout({
             <GlobalModalProvider>
               <Meowl />
 
-              <div className="mx-auto max-w-2xl px-5 sm:px-6 lg:px-8 flex flex-col pt-12 min-h-screen">
+              <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 flex flex-col pt-12 min-h-screen">
                 <Navbar />
 
                 <main className="grow">{children}</main>
