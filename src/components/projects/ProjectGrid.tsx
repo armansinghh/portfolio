@@ -14,6 +14,15 @@ export default function ProjectGrid() {
   const featured = projects.find((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
 
+  const handleOpen = (project: Project) => {
+    setSelected(project);
+    window.dispatchEvent(new CustomEvent("open-project-modal"));
+  };
+
+  const handleClose = () => {
+    setSelected(null);
+    window.dispatchEvent(new CustomEvent("close-project-modal"));
+  };
   return (
     <section className="space-y-10">
       {/* Header */}
@@ -32,7 +41,7 @@ export default function ProjectGrid() {
             <>
               {/* Full featured layout — sm and above */}
               <div
-                onClick={() => setSelected(featured)}
+                onClick={() => handleOpen(featured)}
                 className="hidden sm:block group relative cursor-pointer overflow-hidden rounded-2xl border border-white/6 bg-card transition-all duration-300 hover:border-white/12 hover:shadow-md"
               >
                 {/* Image */}
@@ -93,7 +102,7 @@ export default function ProjectGrid() {
               <div className="sm:hidden">
                 <ProjectCard
                   project={featured}
-                  onClick={() => setSelected(featured)}
+                  onClick={() => handleOpen(featured)}
                 />
               </div>
             </>
@@ -106,13 +115,13 @@ export default function ProjectGrid() {
           <ProjectCard
             key={project.id}
             project={project}
-            onClick={() => setSelected(project)}
+            onClick={() => handleOpen(project)}
           />
         ))}
       </div>
 
       {/* Modal */}
-      <ProjectModal project={selected} onClose={() => setSelected(null)} />
+      <ProjectModal project={selected} onClose={handleClose} />
     </section>
   );
 }

@@ -20,13 +20,6 @@ export default function ProjectModal({ project, onClose }: Props) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
-  useEffect(() => {
-    if (project) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [project]);
 
   if (!project) return null;
 
