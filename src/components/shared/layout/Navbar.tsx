@@ -26,7 +26,7 @@ export default function Navbar() {
   const isHomePage = pathname === '/';
 
   return (
-    <header aria-label="Site header" className="flex items-center justify-between mb-12 px-4 relative mono">
+    <header aria-label="Site header" className="flex items-center justify-between mb-12 px-2 relative mono">
 
       {/* Logo */}
       <Link
