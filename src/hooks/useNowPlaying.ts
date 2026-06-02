@@ -17,22 +17,16 @@ export interface NowPlayingData {
   spotifyUrl: string | null;
 }
 
-/**
- * Single source of truth for Spotify "Now Playing"
- * - Polls the public endpoint
- * - Shared between inline + modal
- * - No UI logic
- */
-export function useNowPlaying(pollInterval = 3000): NowPlayingData {
-  const [data, setData] = useState<NowPlayingData>({
-    isPlaying: false,
-    title: null,
-    artist: null,
-    imageUrl: null,
-    spotifyUrl: null,
-  });
+const NOT_PLAYING: NowPlayingData = {
+  isPlaying: false,
+  title: null,
+  artist: null,
+  imageUrl: null,
+  spotifyUrl: null,
+};
 
-  // Prevent unnecessary state updates
+export function useNowPlaying(pollInterval = 3000): NowPlayingData {
+  const [data, setData] = useState<NowPlayingData>(NOT_PLAYING);
   const lastTextRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -40,28 +34,26 @@ export function useNowPlaying(pollInterval = 3000): NowPlayingData {
 
     async function fetchNowPlaying() {
       try {
-        const res = await fetch(
-          'https://my-spotify-activity.vercel.app/api/status',
-          { cache: 'no-store' }
-        );
+        const res = await fetch('/api/spotify-status', { cache: 'no-store' });
+
+        if (!res.ok) {
+          if (!isMounted) return;
+          lastTextRef.current = null;
+          setData(NOT_PLAYING);
+          return;
+        }
 
         const json: NowPlayingApiResponse = await res.json();
 
         if (!isMounted) return;
 
-        if (!json.playing || !json.text) {
+        if (!json.playing || !json.text || json.text === 'Unavailable') {
           lastTextRef.current = null;
-          setData({
-            isPlaying: false,
-            title: null,
-            artist: null,
-            imageUrl: null,
-            spotifyUrl: null,
-          });
+          setData(NOT_PLAYING);
           return;
         }
 
-        // Avoid re-render if song hasn't changed
+        // avoid re-render if song hasn't changed
         if (json.text === lastTextRef.current) return;
 
         lastTextRef.current = json.text;
@@ -76,22 +68,15 @@ export function useNowPlaying(pollInterval = 3000): NowPlayingData {
           spotifyUrl: json.spotifyUrl ?? null,
         });
       } catch {
+        // silent fail
         if (!isMounted) return;
-
-        setData({
-          isPlaying: false,
-          title: null,
-          artist: null,
-          imageUrl: null,
-          spotifyUrl: null,
-        });
+        lastTextRef.current = null;
+        setData(NOT_PLAYING);
       }
     }
 
-    // Initial fetch
     fetchNowPlaying();
 
-    // Polling
     const interval = setInterval(fetchNowPlaying, pollInterval);
 
     return () => {
