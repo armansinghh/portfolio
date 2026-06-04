@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Arman Singh — AI/DS & Web Developer',
+    name: 'Arman Singh - Portfolio',
     short_name: 'Arman Singh',
     description: 'AI & DS student building machine learning projects and modern web applications with Python, Next.js, React, and TypeScript.',
     start_url: '/',
