@@ -418,76 +418,10 @@ html::-webkit-scrollbar {
 }
 
 /* ================= Notion Renderer ================= */
-/* .notion-content .notion-page {
-  padding: 0 !important;
-  width: 100% !important;
-}
-
-.notion-content .notion-text {
-  color: var(--muted-foreground) !important;
-  font-family: var(--font-dm-sans) !important;
-  line-height: 1.8 !important;
-}
-
-.notion-content .notion-h1,
-.notion-content .notion-h2,
-.notion-content .notion-h3 {
-  color: var(--foreground) !important;
-  font-family: var(--font-dm-sans) !important;
-}
-
-.notion-content .notion-code {
-  font-family: var(--font-jetbrains-mono) !important;
-  background: #f5f5f5 !important;
-  border: 0.5px solid #e5e5e5 !important;
-  border-radius: 0.5rem !important;
-}
-
-.notion-content .notion-code *,
-.notion-content pre[class*="language-"],
-.notion-content code[class*="language-"] {
-  background: #f5f5f5 !important;
-}
-
-.dark .notion-content .notion-code {
-  background: oklch(0.2 0 0) !important;
-  border: 0.5px solid oklch(1 0 0 / 8%) !important;
-}
-
-.dark .notion-content .notion-code *,
-.dark .notion-content pre[class*="language-"],
-.dark .notion-content code[class*="language-"] {
-  background: oklch(0.2 0 0) !important;
-}
-
-.notion-content .notion-inline-code,
-.notion-content code {
-  font-family: var(--font-jetbrains-mono) !important;
-  background: #e5e5e5 !important;
-  color: #333 !important;
-  border-radius: 0.25rem !important;
-  padding: 0.1rem 0.4rem !important;
-}
-
-.dark .notion-content .notion-inline-code,
-.dark .notion-content code {
-  background: oklch(0.2 0 0) !important;
-  color: var(--foreground) !important;
-}
-
-.notion-content .notion-callout {
-  background: #f0f0f0 !important;
-  border: 0.5px solid #e5e5e5 !important;   
-  border-radius: 0.5rem !important;
-}
-
-.dark .notion-content .notion-callout {
-  background: oklch(0.2 0 0) !important;
-  border: 0.5px solid oklch(1 0 0 / 8%) !important;
-} */
-
 .notion-content .notion-page {
   padding: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .notion-content .notion-page-content {
