@@ -25,6 +25,7 @@ import {
 } from "react-icons/si";
 
 import {
+  TbBrandAdobePremier,
   TbBrandAdobeAfterEffect,
   TbBrandAdobePhotoshop,
 } from "react-icons/tb";
@@ -153,6 +154,11 @@ export const ml = [
 ];
 
 export const design = [
+  {
+    name: "Premiere Pro",
+    description: "Video Editing",
+    icon: <TbBrandAdobePremier className="text-indigo-500 text-4xl" />,
+  },
   {
     name: "After Effects",
     description: "Motion Graphics",
